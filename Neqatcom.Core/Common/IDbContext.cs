@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Neqatcom.Core.Common
 {
-    internal interface IDbContext
+    public interface IDbContext
     {
     }
 }
