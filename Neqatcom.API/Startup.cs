@@ -8,6 +8,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Neqatcom.Core.Common;
+using Neqatcom.Core.Repository;
+using Neqatcom.Core.Service;
+using Neqatcom.Infra.Common;
+using Neqatcom.Infra.Repository;
+using Neqatcom.Infra.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,7 +57,17 @@ namespace Neqatcom.API
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKeyGhayathhhhhh"))
                     };
                 });
+           
+            services.AddScoped<IDbContext, DbContext>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IHomeRepository, HomeRepository>();
+            services.AddScoped<IHomeService, HomeService>();
+            services.AddScoped<IContactUsRepository, ContactUsRepository>();
+            services.AddScoped<IContactUsService, ContactUsService>();
             services.AddControllers();
+            
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
