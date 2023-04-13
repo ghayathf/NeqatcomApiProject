@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Data;
 using System.Text;
+using Neqatcom.Core.Common;
 
 namespace Neqatcom.Infra.Common
 {
-    public class DbContext
+    public class DbContext : IDbContext
     {
         private DbConnection _Connection;
         private readonly IConfiguration _configuration;
