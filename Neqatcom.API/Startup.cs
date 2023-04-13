@@ -57,7 +57,9 @@ namespace Neqatcom.API
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKeyGhayathhhhhh"))
                     };
                 });
-           
+            services.AddControllers();
+            services.AddScoped<ITestimonialRepository, TestimonialRepository>();
+            services.AddScoped<ITestimonialService, TestimonialService>();
             services.AddScoped<IDbContext, DbContext>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
@@ -65,6 +67,9 @@ namespace Neqatcom.API
             services.AddScoped<IHomeService, HomeService>();
             services.AddScoped<IContactUsRepository, ContactUsRepository>();
             services.AddScoped<IContactUsService, ContactUsService>();
+            
+
+
             services.AddScoped<ILenderStoreRepository, LenderStoreRepository>();
 
             services.AddScoped<ILenderStoreService, LenderStoreService>();
