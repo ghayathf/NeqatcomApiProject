@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Neqatcom.Core.Common;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,14 +10,11 @@ using System.Text;
 
 namespace Neqatcom.Infra.Repository
 {
-    public class TestimonialRepository
+    public class TestimonialRepository:ITestimonialRepository
     {
 
         private readonly IDbContext _dbContext;
-        public TestimonialRepository(IDbContext dbContext)
-        {
-            this._dbContext = dbContext;
-        }
+       
         public void CreateHomeTestimonial(Gptestimonial finalTestimonial)
         {
             var p = new DynamicParameters();
