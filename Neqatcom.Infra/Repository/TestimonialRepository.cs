@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Neqatcom.Core.Common;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -33,14 +34,14 @@ namespace Neqatcom.Infra.Repository
 
             var result = _dbContext.Connection.Execute("GP_Testimonial_Package.DELETETestimoniaL", p, commandType: CommandType.StoredProcedure);
         }
-        public List<Gptestimonial> GetAllAcceptedTestimonial()
+        public List<TestimonialDTO> GetAllAcceptedTestimonial()
         {
-            IEnumerable<Gptestimonial> result = _dbContext.Connection.Query<Gptestimonial>("GP_Testimonial_Package.GetAllAcceptedTestimonials", commandType: CommandType.StoredProcedure);
+            IEnumerable<TestimonialDTO> result = _dbContext.Connection.Query<TestimonialDTO>("GP_Testimonial_Package.GetAllAcceptedTestimonials", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-        public List<Gptestimonial> GetAllTestimonial()
+        public List<TestimonialDTO> GetAllTestimonial()
         {
-            IEnumerable<Gptestimonial> result = _dbContext.Connection.Query<Gptestimonial>("GP_Testimonial_Package.GetAllTestimonialDTO", commandType: CommandType.StoredProcedure);
+            IEnumerable<TestimonialDTO> result = _dbContext.Connection.Query<TestimonialDTO>("GP_Testimonial_Package.GetAllTestimonialDTO", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
