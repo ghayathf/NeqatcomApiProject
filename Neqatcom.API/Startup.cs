@@ -65,6 +65,9 @@ namespace Neqatcom.API
             services.AddScoped<IHomeService, HomeService>();
             services.AddScoped<IContactUsRepository, ContactUsRepository>();
             services.AddScoped<IContactUsService, ContactUsService>();
+            services.AddScoped<ILenderStoreRepository, LenderStoreRepository>();
+
+            services.AddScoped<ILenderStoreService, LenderStoreService>();
             services.AddControllers();
             
            
