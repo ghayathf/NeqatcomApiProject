@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Neqatcom.Core.Data
+namespace Neqatcom.API.Data
 {
     public partial class Gpcategory
     {
