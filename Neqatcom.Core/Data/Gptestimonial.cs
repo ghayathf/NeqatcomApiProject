@@ -7,7 +7,7 @@ namespace Neqatcom.Core.Data
 {
     public partial class Gptestimonial
     {
-        public decimal Id { get; set; }
+        public decimal Testimonialid { get; set; }
         public string Message { get; set; }
         public decimal? Testimonialstatus { get; set; }
         public decimal? Userid { get; set; }

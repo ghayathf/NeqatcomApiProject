@@ -12,7 +12,7 @@ namespace Neqatcom.Core.Data
             Gploans = new HashSet<Gploan>();
         }
 
-        public decimal Id { get; set; }
+        public decimal Offerid { get; set; }
         public decimal? Totalmonths { get; set; }
         public string Descriptions { get; set; }
         public decimal? Lenderid { get; set; }

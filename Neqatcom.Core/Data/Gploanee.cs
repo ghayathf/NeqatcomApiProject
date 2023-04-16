@@ -13,7 +13,7 @@ namespace Neqatcom.Core.Data
             Gpmeetings = new HashSet<Gpmeeting>();
         }
 
-        public decimal Id { get; set; }
+        public decimal Loaneeid { get; set; }
         public string Nationalnumber { get; set; }
         public DateTime? Dateofbirth { get; set; }
         public decimal? Salary { get; set; }

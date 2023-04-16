@@ -7,7 +7,7 @@ namespace Neqatcom.Core.Data
 {
     public partial class Gppurchasing
     {
-        public decimal Id { get; set; }
+        public decimal Purchaseid { get; set; }
         public DateTime? Paymentdate { get; set; }
         public decimal? Paymenttype { get; set; }
         public decimal? Loanid { get; set; }

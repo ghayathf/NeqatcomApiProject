@@ -13,7 +13,7 @@ namespace Neqatcom.Core.Data
             Gpoffers = new HashSet<Gpoffer>();
         }
 
-        public decimal Id { get; set; }
+        public decimal Lenderid { get; set; }
         public string Commercialregister { get; set; }
         public decimal? Userid { get; set; }
         public decimal? Registerstatus { get; set; }

@@ -57,7 +57,7 @@ namespace Neqatcom.Infra.Repository
         public void UpdateMeeting(Gpmeeting meeting)
         {
             var p = new DynamicParameters();
-            p.Add("IDD", meeting.Id, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("IDD", meeting.Meetingid, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("MeetingDate", meeting.Startdate, DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("Meeting_Url", meeting.Meetingurl, DbType.String, direction: ParameterDirection.Input);
             p.Add("feed_back", meeting.Feedbackk, DbType.Decimal, direction: ParameterDirection.Input);

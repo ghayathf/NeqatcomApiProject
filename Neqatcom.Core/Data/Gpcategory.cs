@@ -12,9 +12,9 @@ namespace Neqatcom.Core.Data
             Gpoffers = new HashSet<Gpoffer>();
         }
 
-        public decimal Id { get; set; }
-        public string Name { get; set; }
-        public string Image { get; set; }
+        public decimal Categoryid { get; set; }
+        public string Categoryname { get; set; }
+        public string Categoryimage { get; set; }
 
         public virtual ICollection<Gpoffer> Gpoffers { get; set; }
     }

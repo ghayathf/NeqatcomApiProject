@@ -14,7 +14,7 @@ namespace Neqatcom.Core.Data
             Gptestimonials = new HashSet<Gptestimonial>();
         }
 
-        public decimal Id { get; set; }
+        public decimal Userid { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Email { get; set; }
@@ -23,7 +23,7 @@ namespace Neqatcom.Core.Data
         public string Address { get; set; }
         public string Role { get; set; }
         public string Username { get; set; }
-        public string Image { get; set; }
+        public string Userimage { get; set; }
 
         public virtual ICollection<Gplenderstore> Gplenderstores { get; set; }
         public virtual ICollection<Gploanee> Gploanees { get; set; }

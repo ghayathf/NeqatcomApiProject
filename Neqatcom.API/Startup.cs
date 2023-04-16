@@ -60,6 +60,12 @@ namespace Neqatcom.API
             services.AddControllers();
             services.AddScoped<ITestimonialRepository, TestimonialRepository>();
             services.AddScoped<ITestimonialService, TestimonialService>();
+            services.AddScoped<IOfferRepository, OfferRepository>();
+            services.AddScoped<IOfferService, OfferService>();
+            services.AddScoped<IPurchasingRepository, PurchasingRepository>();
+            services.AddScoped<IPurchasingService, PurchasingService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IDbContext, DbContext>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICategoryService, CategoryService>();

@@ -12,7 +12,7 @@ namespace Neqatcom.Core.Data
             Gppurchasings = new HashSet<Gppurchasing>();
         }
 
-        public decimal Id { get; set; }
+        public decimal Loanid { get; set; }
         public decimal? Totalmonths { get; set; }
         public decimal? Totalprice { get; set; }
         public decimal? Estimatedprice { get; set; }

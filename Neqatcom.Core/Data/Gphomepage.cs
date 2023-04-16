@@ -7,7 +7,7 @@ namespace Neqatcom.Core.Data
 {
     public partial class Gphomepage
     {
-        public decimal Id { get; set; }
+        public decimal Homeid { get; set; }
         public string Logo { get; set; }
         public string Paragraph1 { get; set; }
         public string Paragraph2 { get; set; }

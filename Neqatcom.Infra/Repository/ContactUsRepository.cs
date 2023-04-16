@@ -20,9 +20,9 @@ namespace Neqatcom.Infra.Repository
         public void CreateContactUs(Gpcontactu contact)
         {
             var p = new DynamicParameters();
-            p.Add("FName", contact.Firstname, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("LName", contact.Lastname, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Email_", contact.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("FName", contact.Firstnamee, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("LName", contact.Lastnamee, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Email_", contact.Emaill, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PhoneNumber_", contact.Phonenumber, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("message_", contact.Message, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.Execute("GP_ContactUs_PACKAGE.InsertContactUs", p, commandType: CommandType.StoredProcedure);
@@ -57,11 +57,11 @@ namespace Neqatcom.Infra.Repository
         public void UpdateContactUs(Gpcontactu contact)
         {
             var p = new DynamicParameters();
-            p.Add("id_", contact.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("id_", contact.Contactid, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            p.Add("FName", contact.Firstname, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("LName", contact.Lastname, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Email_", contact.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("FName", contact.Firstnamee, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("LName", contact.Lastnamee, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Email_", contact.Emaill, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PhoneNumber_", contact.Phonenumber, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("message_", contact.Message, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.Execute("GP_ContactUs_PACKAGE.UpdateContactUs", p, commandType: CommandType.StoredProcedure);
