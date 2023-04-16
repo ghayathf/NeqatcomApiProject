@@ -73,9 +73,12 @@ namespace Neqatcom.API
             services.AddScoped<IHomeService, HomeService>();
             services.AddScoped<IContactUsRepository, ContactUsRepository>();
             services.AddScoped<IContactUsService, ContactUsService>();
-            
-
-
+            services.AddScoped<ILoanRepository, LoanRepository>();
+            services.AddScoped<ILoanService, LoanService>();
+            services.AddScoped<ILoaneeRepository, LoaneeRepository>();
+            services.AddScoped<ILoaneeService, LoaneeService>();
+            services.AddScoped<IMeetingRepository, MeetingRepository>();
+            services.AddScoped<IMeetingService, MeetingService>();
             services.AddScoped<ILenderStoreRepository, LenderStoreRepository>();
 
             services.AddScoped<ILenderStoreService, LenderStoreService>();
