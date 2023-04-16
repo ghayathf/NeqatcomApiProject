@@ -49,7 +49,7 @@ namespace Neqatcom.Infra.Repository
         public void UpdatePurchasing(Gppurchasing purchasing)
         {
             var p = new DynamicParameters();
-            p.Add("idd", purchasing.Id, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("idd", purchasing.Purchaseid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("type", purchasing.Paymenttype, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("date", purchasing.Paymentdate, dbType: DbType.DateTime, ParameterDirection.Input);
             p.Add("LID", purchasing.Loanid, dbType: DbType.Int32, ParameterDirection.Input);

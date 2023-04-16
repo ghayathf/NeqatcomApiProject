@@ -51,7 +51,7 @@ namespace Neqatcom.Infra.Repository
         public void UpdateOffer(Gpoffer offer)
         {
             var p = new DynamicParameters();
-            p.Add("idd", offer.Id, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("idd", offer.Offerid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("months", offer.Totalmonths, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("des", offer.Descriptions, dbType: DbType.String, ParameterDirection.Input);
             p.Add("CID", offer.Categoryid, dbType: DbType.Int32, ParameterDirection.Input);

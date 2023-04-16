@@ -59,7 +59,7 @@ namespace Neqatcom.Infra.Repository
         public void UpdateLenderStore(Gplenderstore gplenderstore)
         {
             var p = new DynamicParameters();
-            p.Add("ID_", gplenderstore.Id, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("ID_", gplenderstore.Lenderid, DbType.Int32, direction: ParameterDirection.Input);
 
             p.Add("COMMERCIALREGISTER_", gplenderstore.Commercialregister, DbType.String, direction: ParameterDirection.Input);
             p.Add("USERID_", gplenderstore.Userid, DbType.Int32, direction: ParameterDirection.Input);

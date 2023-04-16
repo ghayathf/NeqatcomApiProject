@@ -61,7 +61,7 @@ namespace Neqatcom.Infra.Repository
         public void UpdateLoan(Gploan loan)
         {
             var p = new DynamicParameters();
-            p.Add("IDD", loan.Id, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("IDD", loan.Loanid, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("TotalMon", loan.Totalmonths, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("TotalPri", loan.Totalprice, DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("EstimatedPri", loan.Estimatedprice, DbType.Decimal, direction: ParameterDirection.Input);

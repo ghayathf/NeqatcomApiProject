@@ -58,7 +58,7 @@ namespace Neqatcom.Infra.Repository
         public void UpdateHomeInformation(Gphomepage finalHomepage)
         {
             var p = new DynamicParameters();
-            p.Add("HOME_ID", finalHomepage.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("HOME_ID", finalHomepage.Homeid, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             p.Add("Home_Logo", finalHomepage.Logo, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PAR1", finalHomepage.Paragraph1, dbType: DbType.String, direction: ParameterDirection.Input);

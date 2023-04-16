@@ -25,7 +25,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("addr", user.Address, dbType: DbType.String, ParameterDirection.Input);
             p.Add("R", user.Role, dbType: DbType.String, ParameterDirection.Input);
             p.Add("Uname", user.Username, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("img", user.Image, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("img", user.Userimage, dbType: DbType.String, ParameterDirection.Input);
 
 
             var result = _dbContext.Connection.Execute("GP_User_Package.CreateUser", p, commandType: CommandType.StoredProcedure);
@@ -56,7 +56,7 @@ namespace Neqatcom.Infra.Repository
         public void UpdateUser(Gpuser user)
         {
             var p = new DynamicParameters();
-            p.Add("idd", user.Id, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("idd", user.Userid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("Fname", user.Firstname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("Lname", user.Lastname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("emaail", user.Email, dbType: DbType.String, ParameterDirection.Input);
@@ -65,7 +65,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("addr", user.Address, dbType: DbType.String, ParameterDirection.Input);
             p.Add("R", user.Role, dbType: DbType.String, ParameterDirection.Input);
             p.Add("Uname", user.Username, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("img", user.Image, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("img", user.Userimage, dbType: DbType.String, ParameterDirection.Input);
 
 
             var result = _dbContext.Connection.Execute("GP_User_Package.UpdateUser", p, commandType: CommandType.StoredProcedure);

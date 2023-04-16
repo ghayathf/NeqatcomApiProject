@@ -57,7 +57,7 @@ namespace Neqatcom.Infra.Repository
         public void UpdateLoanee(Gploanee loanee)
         {
             var p = new DynamicParameters();
-            p.Add("IDD", loanee.Id, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("IDD", loanee.Loaneeid, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("NN", loanee.Nationalnumber, DbType.String, direction: ParameterDirection.Input);
             p.Add("DofBirth", loanee.Dateofbirth, DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("LSalary", loanee.Salary, DbType.Decimal, direction: ParameterDirection.Input);

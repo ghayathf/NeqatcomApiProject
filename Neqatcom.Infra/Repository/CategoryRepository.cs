@@ -17,8 +17,8 @@ namespace Neqatcom.Infra.Repository
         public void CreateCategory(Gpcategory gpcategory)
         {
             var p = new DynamicParameters();
-            p.Add("cat_name", gpcategory.Name, DbType.String, direction: ParameterDirection.Input);
-            p.Add("cat_img", gpcategory.Image, DbType.String, direction: ParameterDirection.Input);
+            p.Add("cat_name", gpcategory.Categoryname, DbType.String, direction: ParameterDirection.Input);
+            p.Add("cat_img", gpcategory.Categoryimage, DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("GP_Category_PACKAGE.CreateCategory", p, commandType: CommandType.StoredProcedure);
         }
@@ -43,7 +43,7 @@ namespace Neqatcom.Infra.Repository
             param: null,
             commandType: CommandType.StoredProcedure);
 
-            var results = result.GroupBy(p => p.Id).Select(g =>
+            var results = result.GroupBy(p => p.Categoryid).Select(g =>
             {
                 var groupedPost = g.First();
                 groupedPost.Gpoffers = g.Select(p => p.Gpoffers.Single()).ToList();
@@ -64,9 +64,9 @@ namespace Neqatcom.Infra.Repository
         public void UpdateCategory(Gpcategory gpcategory)
         {
             var p = new DynamicParameters();
-            p.Add("id_", gpcategory.Id, DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("cat_name", gpcategory.Name, DbType.String, direction: ParameterDirection.Input);
-            p.Add("cat_img", gpcategory.Image, DbType.String, direction: ParameterDirection.Input);
+            p.Add("id_", gpcategory.Categoryid, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("cat_name", gpcategory.Categoryname, DbType.String, direction: ParameterDirection.Input);
+            p.Add("cat_img", gpcategory.Categoryimage, DbType.String, direction: ParameterDirection.Input);
 
             _dbContext.Connection.Execute("GP_Category_PACKAGE.CreateCategory", p, commandType: CommandType.StoredProcedure);
         }

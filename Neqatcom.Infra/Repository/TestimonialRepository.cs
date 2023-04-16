@@ -52,7 +52,7 @@ namespace Neqatcom.Infra.Repository
         public void UpdateTestimonial(Gptestimonial finalTestimonial)
         {
             var p = new DynamicParameters();
-            p.Add("idd", finalTestimonial.Id, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("idd", finalTestimonial.Testimonialid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("msg", finalTestimonial.Message, dbType: DbType.String, ParameterDirection.Input);
             p.Add("status", finalTestimonial.Testimonialstatus, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("USERID", finalTestimonial.Userid, dbType: DbType.Int32, ParameterDirection.Input);
