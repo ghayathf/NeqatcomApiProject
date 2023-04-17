@@ -23,7 +23,7 @@ namespace Neqatcom.Infra.Repository
             var p = new DynamicParameters();
             p.Add("COMMERCIALREGISTER_", gplenderstore.Commercialregister, DbType.String, direction: ParameterDirection.Input);
             p.Add("USERID_", gplenderstore.Userid, DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("REGISTERSTATUS_", gplenderstore.Registerstatus, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("REGISTERSTATUS_", -1, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("SHADOWSTATUS_", gplenderstore.Shadowstatus, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("COMPANTSIZE_", gplenderstore.Companysize, DbType.String, direction: ParameterDirection.Input);
             p.Add("SITEURL_", gplenderstore.Siteurl, DbType.String, direction: ParameterDirection.Input);
