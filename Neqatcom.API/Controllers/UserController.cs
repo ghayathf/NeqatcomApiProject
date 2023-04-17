@@ -16,6 +16,20 @@ namespace Neqatcom.API.Controllers
         {
             this.userService = userService;
         }
+        [HttpPost]
+        [Route("login")]
+        public IActionResult Auth([FromBody] Gpuser login)
+        {
+            var token = userService.Auth(login);
+            if(token == null)
+            {
+                return Unauthorized();
+            }
+            else
+            {
+                return Ok(token);
+            }
+        }
         [HttpGet]
         [Route("GetAllUsers")]
         public List<Gpuser> GetAllUsers()

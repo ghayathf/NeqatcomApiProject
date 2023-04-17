@@ -13,6 +13,10 @@ namespace Neqatcom.Infra.Repository
     public class UserRepository:IUserRepository
     {
         private readonly IDbContext _dbContext;
+        public UserRepository(IDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
         public void CreateUser(Gpuser user)
         {
@@ -69,6 +73,14 @@ namespace Neqatcom.Infra.Repository
 
 
             var result = _dbContext.Connection.Execute("GP_User_Package.UpdateUser", p, commandType: CommandType.StoredProcedure);
+        }
+        public Gpuser Auth(Gpuser login)
+        {
+            var p = new DynamicParameters();
+            p.Add("usernameee", login.Username, DbType.String, direction: ParameterDirection.Input);
+            p.Add("passsword", login.Password, DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Gpuser> result = _dbContext.Connection.Query<Gpuser>("GP_User_Package.LOGIN_CHECKING", p, commandType: System.Data.CommandType.StoredProcedure);
+            return result.FirstOrDefault();
         }
     }
 }
