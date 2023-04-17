@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 
 namespace Neqatcom.API.Controllers
 {
@@ -68,6 +69,12 @@ namespace Neqatcom.API.Controllers
             Gphomepage item = new Gphomepage();
             item.Logo = fileName;
             return item;
+        }
+        [HttpGet]
+        [Route("getTableLengths")]
+        public List<Lengths> getTableLengths()
+        {
+            return _homeService.getTableLength();
         }
     }
 }
