@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Neqatcom.Core.Common;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,12 @@ namespace Neqatcom.Infra.Repository
             p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Gphomepage> result = _dbContext.Connection.Query<Gphomepage>("GP_HOMEPAGE_PACKAGE.GetHomeInfoById", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
+        }
+
+        public List<Lengths> getTableLength()
+        {
+            IEnumerable<Lengths> result = _dbContext.Connection.Query<Lengths>("GP_HOMEPAGE_PACKAGE.getTableLength", commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
         public void UpdateHomeInformation(Gphomepage finalHomepage)
