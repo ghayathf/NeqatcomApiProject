@@ -1,4 +1,5 @@
 ﻿using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using Neqatcom.Core.Service;
 using System;
@@ -28,6 +29,12 @@ namespace Neqatcom.Infra.Service
         public List<Gplenderstore> GetAllLenderStore()
         {
             return _lenderStoreRepository.GetAllLenderStore();
+        }
+
+        public List<LenderUser> GetAllLenderUser()
+        {
+            return _lenderStoreRepository.GetAllLenderUser();
+
         }
 
         public Gplenderstore GetLenderStoreById(int id)

@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Neqatcom.Core.Common;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,12 @@ namespace Neqatcom.Infra.Repository
         public List<Gplenderstore> GetAllLenderStore()
         {
             IEnumerable<Gplenderstore> result = _dbContext.Connection.Query<Gplenderstore>("GP_LENDERSTORE_PACKAGE.GETALLLENDERSTORE", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<LenderUser> GetAllLenderUser()
+        {
+            IEnumerable<LenderUser> result = _dbContext.Connection.Query<LenderUser>("GP_LENDERSTORE_PACKAGE.getLenderUser", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

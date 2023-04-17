@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Service;
 using System.Collections.Generic;
 
@@ -20,6 +21,12 @@ namespace Neqatcom.API.Controllers
        public List<Gplenderstore> GetAllLenderStore()
         {
            return _lenderStoreService.GetAllLenderStore();
+        }
+        [HttpGet]
+        [Route("GetAllLenderUser")]
+        public List<LenderUser> GetAllLenderUser()
+        {
+            return _lenderStoreService.GetAllLenderUser();
         }
         [HttpGet]
         [Route("GetLenderStoreById/{id}")]
