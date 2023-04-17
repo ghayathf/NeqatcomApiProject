@@ -14,7 +14,10 @@ namespace Neqatcom.Infra.Repository
     {
 
         private readonly IDbContext _dbContext;
-       
+        public TestimonialRepository(IDbContext dbContext)
+        {
+            this._dbContext = dbContext;
+        }
         public void CreateHomeTestimonial(Gptestimonial finalTestimonial)
         {
             var p = new DynamicParameters();

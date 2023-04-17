@@ -1,4 +1,5 @@
 ﻿using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using Neqatcom.Core.Service;
 using System;
@@ -34,6 +35,11 @@ namespace Neqatcom.Infra.Service
         public Gphomepage GetHomeInformationById(int id)
         {
             return _homeRepository.GetHomeInformationById(id);
+        }
+
+        public List<Lengths> getTableLength()
+        {
+            return _homeRepository.getTableLength();
         }
 
         public void UpdateHomeInformation(Gphomepage finalHomepage)

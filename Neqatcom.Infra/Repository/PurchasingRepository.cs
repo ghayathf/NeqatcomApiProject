@@ -13,7 +13,10 @@ namespace Neqatcom.Infra.Repository
     public class PurchasingRepository : IPurchasingRepository
     {
         private readonly IDbContext _dbContext;
-
+        public PurchasingRepository(IDbContext dbContext)
+        {
+            this._dbContext = dbContext;
+        }
         public void CreatePurchasing(Gppurchasing purchasing)
         {
             var p = new DynamicParameters();
