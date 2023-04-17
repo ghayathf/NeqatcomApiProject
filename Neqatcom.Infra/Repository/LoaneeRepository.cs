@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Neqatcom.Core.Common;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,13 @@ namespace Neqatcom.Infra.Repository
         public List<Gploanee> GetAllLoanees()
         {
             IEnumerable<Gploanee> loanee = dbContext.Connection.Query<Gploanee>("GPLOANEE_Package.GetAllLoanees"
+                 , commandType: CommandType.StoredProcedure);
+            return loanee.ToList();
+        }
+
+        public List<LoaneeUser> GetAllLoaneeUser()
+        {
+            IEnumerable<LoaneeUser> loanee = dbContext.Connection.Query<LoaneeUser>("GPLOANEE_Package.LoaneeUser"
                  , commandType: CommandType.StoredProcedure);
             return loanee.ToList();
         }

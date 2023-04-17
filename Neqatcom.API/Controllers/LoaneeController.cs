@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Service;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,12 @@ namespace Neqatcom.API.Controllers
         public List<Gploanee> GetAllLoanees()
         {
             return loaneeService.GetAllLoanees();
+        }
+        [HttpGet]
+        [Route("GetAllLoaneeUser")]
+        public List<LoaneeUser> GetAllLoaneeUser()
+        {
+            return loaneeService.GetAllLoaneeUser();
         }
         [HttpPut]
         [Route("UpdateLoanee")]

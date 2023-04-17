@@ -13,7 +13,10 @@ namespace Neqatcom.Infra.Repository
     public class OfferRepository : IOfferRepository
     {
         private readonly IDbContext _dbContext;
-
+        public OfferRepository(IDbContext dbContext)
+        {
+            this._dbContext = dbContext;
+        }
         public void CreateOffer(Gpoffer offer)
         {
             var p = new DynamicParameters();

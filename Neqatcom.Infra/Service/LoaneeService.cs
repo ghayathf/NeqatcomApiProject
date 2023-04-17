@@ -1,4 +1,5 @@
 ﻿using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using Neqatcom.Core.Service;
 using System;
@@ -28,6 +29,11 @@ namespace Neqatcom.Infra.Service
         public List<Gploanee> GetAllLoanees()
         {
             return loaneeRepository.GetAllLoanees();
+        }
+
+        public List<LoaneeUser> GetAllLoaneeUser()
+        {
+            return loaneeRepository.GetAllLoaneeUser();
         }
 
         public Gploanee GetLoaneeByID(int IDD)
