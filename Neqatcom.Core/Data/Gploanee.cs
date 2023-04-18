@@ -20,6 +20,7 @@ namespace Neqatcom.Core.Data
         public decimal? Numoffamily { get; set; }
         public decimal? Creditscore { get; set; }
         public decimal? Userid { get; set; }
+        public decimal? Warncounter { get; set; }
 
         public virtual Gpuser User { get; set; }
         public virtual ICollection<Gploan> Gploans { get; set; }
