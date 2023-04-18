@@ -80,7 +80,8 @@ namespace Neqatcom.API
             services.AddScoped<IMeetingRepository, MeetingRepository>();
             services.AddScoped<IMeetingService, MeetingService>();
             services.AddScoped<ILenderStoreRepository, LenderStoreRepository>();
-
+            services.AddScoped<IAdminRepository, AdminRepository>();
+            services.AddScoped<IAdminService, AdminService>();
             services.AddScoped<ILenderStoreService, LenderStoreService>();
             services.AddControllers();
             
