@@ -20,6 +20,7 @@ namespace Neqatcom.Core.Data
         public decimal? Shadowstatus { get; set; }
         public string Companysize { get; set; }
         public string Siteurl { get; set; }
+        public decimal? Warncounter { get; set; }
 
         public virtual Gpuser User { get; set; }
         public virtual ICollection<Gpmeeting> Gpmeetings { get; set; }
