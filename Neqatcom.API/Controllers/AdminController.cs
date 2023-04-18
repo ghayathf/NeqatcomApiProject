@@ -25,5 +25,11 @@ namespace Neqatcom.API.Controllers
         {
             return adminService.GetGpcommercialregisters();
         }
+        [HttpPut]
+        [Route("AcceptLenderRegistration/{id}")]
+        public void AcceptLenderRegistration(int id)
+        {
+            adminService.HandleRegistarction(id);
+        }
     }
 }

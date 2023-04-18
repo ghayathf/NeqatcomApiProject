@@ -8,5 +8,6 @@ namespace Neqatcom.Core.Service
    public interface IAdminService
     {
         List<Gpcommercialregister> GetGpcommercialregisters();
+        void HandleRegistarction(int IDD);
     }
 }

@@ -24,5 +24,13 @@ namespace Neqatcom.Infra.Repository
               , commandType: CommandType.StoredProcedure);
             return loan.ToList();
         }
+
+        public void HandleRegistarction(int IDD)
+        {
+            var p = new DynamicParameters();
+            p.Add("IDD", IDD, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Gphomepage> result = dbContext.Connection.Query<Gphomepage>("GPADMIN_Package.HandleRegistration", p, commandType: CommandType.StoredProcedure);
+          
+        }
     }
 }

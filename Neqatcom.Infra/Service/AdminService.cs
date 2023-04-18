@@ -19,5 +19,10 @@ namespace Neqatcom.Infra.Service
         {
             return adminRepository.GetGpcommercialregisters();
         }
+
+        public void HandleRegistarction(int IDD)
+        {
+            adminRepository.HandleRegistarction(IDD);
+        }
     }
 }
