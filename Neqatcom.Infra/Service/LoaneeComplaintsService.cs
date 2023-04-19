@@ -1,4 +1,5 @@
-﻿using Neqatcom.Core.Repository;
+﻿using Neqatcom.Core.DTO;
+using Neqatcom.Core.Repository;
 using Neqatcom.Core.Service;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,11 @@ namespace Neqatcom.Infra.Service
         public LoaneeComplaintsService(ILoaneeComplaintsRepository LCRepository)
         {
             this.LCRepository = LCRepository;
+        }
+
+        public List<LoaneeComplaintsDTO> GetAllCompliants()
+        {
+            return LCRepository.GetAllCompliants();
         }
 
         public void ManageComplaints(int LID)

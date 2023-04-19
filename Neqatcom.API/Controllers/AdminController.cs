@@ -40,5 +40,11 @@ namespace Neqatcom.API.Controllers
         {
             lcService.ManageComplaints(lid);
         }
+        [HttpGet]
+        [Route("GetAllComplaints")]
+        public void GetAllComplaints()
+        {
+            lcService.GetAllCompliants();
+        }
     }
 }

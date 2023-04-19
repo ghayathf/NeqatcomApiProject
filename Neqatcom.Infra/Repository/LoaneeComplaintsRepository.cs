@@ -1,9 +1,11 @@
 ﻿using Dapper;
 using Neqatcom.Core.Common;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace Neqatcom.Infra.Repository
@@ -14,6 +16,12 @@ namespace Neqatcom.Infra.Repository
         public LoaneeComplaintsRepository(IDbContext dbContext)
         {
             this.dbContext = dbContext;
+        }
+
+        public List<LoaneeComplaintsDTO> GetAllCompliants()
+        {
+            IEnumerable<LoaneeComplaintsDTO> result = dbContext.Connection.Query<LoaneeComplaintsDTO>("GPADMIN_Package.RetreiveCompliantsInfo", commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
         public void ManageComplaints(int LID)
