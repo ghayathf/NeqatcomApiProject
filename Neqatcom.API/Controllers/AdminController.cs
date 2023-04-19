@@ -15,9 +15,12 @@ namespace Neqatcom.API.Controllers
     {
 
         private readonly IAdminService adminService;
-        public AdminController(IAdminService adminService)
+        private readonly ILoaneeComplaintsService lcService;
+
+        public AdminController(IAdminService adminService,ILoaneeComplaintsService lcService)
         {
             this.adminService = adminService;
+            this.lcService = lcService;
         }
         [HttpGet]
         [Route("GetAllCommercialRegistres")]
@@ -30,6 +33,12 @@ namespace Neqatcom.API.Controllers
         public void AcceptLenderRegistration(int id)
         {
             adminService.HandleRegistarction(id);
+        }
+        [HttpPost]
+        [Route("ManageLoaneeComplaints/{lid}")]
+        public void ManageLoaneeComplaints(int lid)
+        {
+            lcService.ManageComplaints(lid);
         }
     }
 }
