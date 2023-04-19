@@ -84,8 +84,9 @@ namespace Neqatcom.API
             services.AddScoped<IAdminService, AdminService>();
             services.AddScoped<ILenderStoreService, LenderStoreService>();
             services.AddControllers();
-            
-           
+            services.AddScoped<ILoaneeComplaintsRepository, LoaneeComplaintsRepository>();
+            services.AddScoped<ILoaneeComplaintsService, LoaneeComplaintsService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
