@@ -12,6 +12,7 @@ namespace Neqatcom.Core.Data
         public DateTime? Dateofcomplaints { get; set; }
         public decimal? Loid { get; set; }
         public decimal? Leid { get; set; }
+        public decimal? Managestatus { get; set; }
 
         public virtual Gplenderstore Le { get; set; }
         public virtual Gploanee Lo { get; set; }

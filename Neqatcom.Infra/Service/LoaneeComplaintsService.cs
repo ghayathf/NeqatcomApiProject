@@ -20,9 +20,9 @@ namespace Neqatcom.Infra.Service
             return LCRepository.GetAllCompliants();
         }
 
-        public void ManageComplaints(int LID)
+        public void ManageComplaints(int LID, int CID)
         {
-            LCRepository.ManageComplaints(LID);
+            LCRepository.ManageComplaints(LID,CID);
         }
     }
 }

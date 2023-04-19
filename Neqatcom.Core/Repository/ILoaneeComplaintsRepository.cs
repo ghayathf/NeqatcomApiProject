@@ -7,7 +7,7 @@ namespace Neqatcom.Core.Repository
 {
    public interface ILoaneeComplaintsRepository
     {
-        void ManageComplaints(int LID);
+        void ManageComplaints(int LID,int CID);
         List<LoaneeComplaintsDTO> GetAllCompliants();
 
     }

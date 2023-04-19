@@ -36,10 +36,10 @@ namespace Neqatcom.API.Controllers
             adminService.HandleRegistarction(id);
         }
         [HttpPost]
-        [Route("ManageLoaneeComplaints/{lid}")]
-        public void ManageLoaneeComplaints(int lid)
+        [Route("ManageLoaneeComplaints/{lid}/{CID}")]
+        public void ManageLoaneeComplaints(int lid, int CID)
         {
-            lcService.ManageComplaints(lid);
+            lcService.ManageComplaints(lid, CID);
         }
         [HttpGet]
         [Route("GetAllComplaints")]

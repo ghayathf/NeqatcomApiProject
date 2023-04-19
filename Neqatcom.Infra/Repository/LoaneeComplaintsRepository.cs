@@ -24,10 +24,12 @@ namespace Neqatcom.Infra.Repository
             return result.ToList();
         }
 
-        public void ManageComplaints(int LID)
+        public void ManageComplaints(int LID, int CID)
         {
             var p = new DynamicParameters();
             p.Add("LID", LID, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("CID", CID, DbType.Int32, direction: ParameterDirection.Input);
+
             dbContext.Connection.Execute("GPADMIN_Package.ManageLoaneeComplaints", p, commandType: CommandType.StoredProcedure);
         }
     }
