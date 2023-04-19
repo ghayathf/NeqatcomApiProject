@@ -20,10 +20,10 @@ namespace Neqatcom.Core.Data
         public decimal? Salary { get; set; }
         public decimal? Numoffamily { get; set; }
         public decimal? Creditscore { get; set; }
-        public decimal? Userid { get; set; }
+        public decimal? Loaneeuserid { get; set; }
         public decimal? Warncounter { get; set; }
 
-        public virtual Gpuser User { get; set; }
+        public virtual Gpuser Loaneeuser { get; set; }
         public virtual ICollection<Gpcomplaint> Gpcomplaints { get; set; }
         public virtual ICollection<Gploan> Gploans { get; set; }
         public virtual ICollection<Gpmeeting> Gpmeetings { get; set; }

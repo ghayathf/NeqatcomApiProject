@@ -16,7 +16,7 @@ namespace Neqatcom.Core.Data
 
         public decimal Lenderid { get; set; }
         public string Commercialregister { get; set; }
-        public decimal? Userid { get; set; }
+        public decimal? Lenderuserid { get; set; }
         public decimal? Registerstatus { get; set; }
         public decimal? Shadowstatus { get; set; }
         public string Companysize { get; set; }
@@ -24,7 +24,7 @@ namespace Neqatcom.Core.Data
         public decimal? Warncounter { get; set; }
         public DateTime? Warndate { get; set; }
 
-        public virtual Gpuser User { get; set; }
+        public virtual Gpuser Lenderuser { get; set; }
         public virtual ICollection<Gpcomplaint> Gpcomplaints { get; set; }
         public virtual ICollection<Gpmeeting> Gpmeetings { get; set; }
         public virtual ICollection<Gpoffer> Gpoffers { get; set; }

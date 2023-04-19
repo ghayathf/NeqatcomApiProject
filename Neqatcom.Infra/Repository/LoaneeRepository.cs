@@ -27,7 +27,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("LSalary", loanee.Salary, DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("NumOffam", loanee.Numoffamily, DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("Score", loanee.Creditscore, DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("userIDD", loanee.Userid, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("userIDD", loanee.Loaneeuserid, DbType.Int32, direction: ParameterDirection.Input);
 
             dbContext.Connection.Execute("GPLOANEE_Package.CreateLoanee", p, commandType: CommandType.StoredProcedure);
         }
@@ -71,7 +71,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("LSalary", loanee.Salary, DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("NumOffam", loanee.Numoffamily, DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("Score", loanee.Creditscore, DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("userIDD", loanee.Userid, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("userIDD", loanee.Loaneeuserid, DbType.Int32, direction: ParameterDirection.Input);
 
             dbContext.Connection.Execute("GPLOANEE_Package.UpdateLoanee", p, commandType: CommandType.StoredProcedure);
         }
