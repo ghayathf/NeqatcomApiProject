@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Neqatcom.Core.Common;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,13 @@ namespace Neqatcom.Infra.Repository
         public AdminRepository(IDbContext dbContext)
         {
             this.dbContext = dbContext;
+        }
+
+        public List<ActorCounterDTO> ActorCounter()
+        {
+            IEnumerable<ActorCounterDTO> loan = dbContext.Connection.Query<ActorCounterDTO>("GPADMIN_Package.ActorCounter"
+              , commandType: CommandType.StoredProcedure);
+            return loan.ToList();
         }
 
         public List<Gpcommercialregister> GetGpcommercialregisters()
