@@ -18,6 +18,11 @@ namespace Neqatcom.Infra.Repository
             this.dbContext = dbContext;
         }
 
+        public void CheckFiveDays()
+        {
+            dbContext.Connection.Execute("GPADMIN_Package.checkFiveDays",  commandType: CommandType.StoredProcedure);
+        }
+
         public List<LoaneeComplaintsDTO> GetAllCompliants()
         {
             IEnumerable<LoaneeComplaintsDTO> result = dbContext.Connection.Query<LoaneeComplaintsDTO>("GPADMIN_Package.RetreiveCompliantsInfo", commandType: CommandType.StoredProcedure);
