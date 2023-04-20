@@ -10,6 +10,7 @@ namespace Neqatcom.Core.Service
     {
         List<Gpcommercialregister> GetGpcommercialregisters();
         void HandleRegistarction(int IDD);
+        List<LoaneeCreditScores> loaneeCreditScores();
 
         List<ActorCounterDTO> ActorCounter();
     }

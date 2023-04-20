@@ -30,5 +30,10 @@ namespace Neqatcom.Infra.Service
         {
             adminRepository.HandleRegistarction(IDD);
         }
+
+        public List<LoaneeCreditScores> loaneeCreditScores()
+        {
+            return adminRepository.loaneeCreditScores();
+        }
     }
 }

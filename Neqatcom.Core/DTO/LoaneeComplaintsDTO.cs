@@ -23,11 +23,7 @@ namespace Neqatcom.Core.DTO
         public decimal? Leid { get; set; }
         public decimal Loaneeid { get; set; }
         public string Nationalnumber { get; set; }
-        public DateTime? Dateofbirth { get; set; }
-        public decimal? Salary { get; set; }
-        public decimal? Numoffamily { get; set; }
-        public decimal? Creditscore { get; set; }
-        public decimal? Loaneeuserid { get; set; }
+       
         public decimal Lenderid { get; set; }
         public string Commercialregister { get; set; }
         public decimal? Lenderuserid { get; set; }
@@ -36,5 +32,6 @@ namespace Neqatcom.Core.DTO
         public string Companysize { get; set; }
         public string Siteurl { get; set; }
         public DateTime? Warndate { get; set; }
+        public decimal? Warncounter { get; set; }
     }
 }

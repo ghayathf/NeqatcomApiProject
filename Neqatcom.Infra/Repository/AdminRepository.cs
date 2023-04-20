@@ -40,5 +40,12 @@ namespace Neqatcom.Infra.Repository
             IEnumerable<Gphomepage> result = dbContext.Connection.Query<Gphomepage>("GPADMIN_Package.HandleRegistration", p, commandType: CommandType.StoredProcedure);
           
         }
+
+        public List<LoaneeCreditScores> loaneeCreditScores()
+        {
+            IEnumerable<LoaneeCreditScores> loan = dbContext.Connection.Query<LoaneeCreditScores>("GPADMIN_Package.CreditScoreCharts"
+               , commandType: CommandType.StoredProcedure);
+            return loan.ToList();
+        }
     }
 }
