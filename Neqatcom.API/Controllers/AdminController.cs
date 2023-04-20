@@ -47,5 +47,11 @@ namespace Neqatcom.API.Controllers
         {
             return lcService.GetAllCompliants();
         }
+        [HttpPost]
+        [Route("CheckFiveDays")]
+        public void CheckFiveDays()
+        {
+            lcService.CheckFiveDays();
+        }
     }
 }

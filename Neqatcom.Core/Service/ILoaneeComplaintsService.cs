@@ -9,6 +9,7 @@ namespace Neqatcom.Core.Service
     {
         void ManageComplaints(int LID, int CID);
         List<LoaneeComplaintsDTO> GetAllCompliants();
+        void CheckFiveDays();
 
     }
 }

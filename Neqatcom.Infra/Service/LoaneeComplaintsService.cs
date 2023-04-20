@@ -15,6 +15,11 @@ namespace Neqatcom.Infra.Service
             this.LCRepository = LCRepository;
         }
 
+        public void CheckFiveDays()
+        {
+            LCRepository.CheckFiveDays();
+        }
+
         public List<LoaneeComplaintsDTO> GetAllCompliants()
         {
             return LCRepository.GetAllCompliants();
