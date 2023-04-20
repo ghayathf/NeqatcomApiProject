@@ -1,4 +1,5 @@
 ﻿using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,6 @@ namespace Neqatcom.Core.Repository
     {
         List<Gpcommercialregister> GetGpcommercialregisters();
         void HandleRegistarction(int IDD);
-
+        List<LoaneeCreditScores> loaneeCreditScores();
     }
 }
