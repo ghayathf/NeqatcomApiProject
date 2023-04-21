@@ -44,7 +44,7 @@ namespace Neqatcom.Infra.Repository
         public List<LoaneeCreditScores> loaneeCreditScores()
         {
             IEnumerable<LoaneeCreditScores> loan = dbContext.Connection.Query<LoaneeCreditScores>("GPADMIN_Package.CreditScoreCharts"
-               , commandType: CommandType.StoredProcedure);
+              , commandType: CommandType.StoredProcedure);
             return loan.ToList();
         }
     }

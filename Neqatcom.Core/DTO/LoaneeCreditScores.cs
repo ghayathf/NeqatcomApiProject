@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Neqatcom.Core.DTO
 {
-  public  interface LoaneeCreditScores
+  public  class  LoaneeCreditScores
     {
-        public int CreditScore { get; set; }
-        public int Count { get; set; }
+        public int CREDITSCORE { get; set; }
+        public int COUNT { get; set; }
     }
 }
