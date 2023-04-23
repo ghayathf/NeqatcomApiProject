@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Neqatcom.Core.Common;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,13 @@ namespace Neqatcom.Infra.Repository
             this.dbContext = dbContext;
         }
 
+        public List<ActorCounterDTO> ActorCounter()
+        {
+            IEnumerable<ActorCounterDTO> loan = dbContext.Connection.Query<ActorCounterDTO>("GPADMIN_Package.ActorCounter"
+              , commandType: CommandType.StoredProcedure);
+            return loan.ToList();
+        }
+
         public List<Gpcommercialregister> GetGpcommercialregisters()
         {
             IEnumerable<Gpcommercialregister> loan = dbContext.Connection.Query<Gpcommercialregister>("GPADMIN_Package.GetAllCommercial"
@@ -31,6 +39,13 @@ namespace Neqatcom.Infra.Repository
             p.Add("IDD", IDD, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Gphomepage> result = dbContext.Connection.Query<Gphomepage>("GPADMIN_Package.HandleRegistration", p, commandType: CommandType.StoredProcedure);
           
+        }
+
+        public List<LoaneeCreditScores> loaneeCreditScores()
+        {
+            IEnumerable<LoaneeCreditScores> loan = dbContext.Connection.Query<LoaneeCreditScores>("GPADMIN_Package.CreditScoreCharts"
+              , commandType: CommandType.StoredProcedure);
+            return loan.ToList();
         }
     }
 }

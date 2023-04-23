@@ -47,5 +47,23 @@ namespace Neqatcom.API.Controllers
         {
             return lcService.GetAllCompliants();
         }
+        [HttpPost]
+        [Route("CheckFiveDays")]
+        public void CheckFiveDays()
+        {
+            lcService.CheckFiveDays();
+        }
+        [HttpGet]
+        [Route("LoaneeCreditScores")]
+        public List<LoaneeCreditScores> LoaneeCreditScores()
+        {
+            return adminService.loaneeCreditScores();
+        }
+        [HttpGet]
+        [Route("ActorCounter")]
+        public List<ActorCounterDTO> ActorCounter()
+        {
+            return adminService.ActorCounter();
+        }
     }
 }

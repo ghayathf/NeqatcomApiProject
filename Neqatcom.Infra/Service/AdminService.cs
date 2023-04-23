@@ -1,4 +1,5 @@
 ﻿using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using Neqatcom.Core.Service;
 using System;
@@ -15,6 +16,11 @@ namespace Neqatcom.Infra.Service
             this.adminRepository = adminRepository;
         }
 
+        public List<ActorCounterDTO> ActorCounter()
+        {
+            return adminRepository.ActorCounter();
+        }
+
         public List<Gpcommercialregister> GetGpcommercialregisters()
         {
             return adminRepository.GetGpcommercialregisters();
@@ -23,6 +29,11 @@ namespace Neqatcom.Infra.Service
         public void HandleRegistarction(int IDD)
         {
             adminRepository.HandleRegistarction(IDD);
+        }
+
+        public List<LoaneeCreditScores> loaneeCreditScores()
+        {
+            return adminRepository.loaneeCreditScores();
         }
     }
 }
