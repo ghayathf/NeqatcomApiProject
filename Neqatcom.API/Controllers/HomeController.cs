@@ -59,7 +59,7 @@ namespace Neqatcom.API.Controllers
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
             //change this path
-            var fullpath = Path.Combine("C:\\LearningHub_Angular\\src\\assets\\HomeAssets\\images", fileName);
+            var fullpath = Path.Combine("C:\\neqatcom_Angular\\src\\assets\\HomeAssets\\images", fileName);
 
             using (var stream = new FileStream(fullpath, FileMode.Create))
             {
