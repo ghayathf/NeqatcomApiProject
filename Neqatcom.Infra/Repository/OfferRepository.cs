@@ -37,6 +37,15 @@ namespace Neqatcom.Infra.Repository
             var result = _dbContext.Connection.Execute("GP_Offer_Package.DELETEOffer", p, commandType: CommandType.StoredProcedure);
         }
 
+        public List<Gpoffer> GetAllOferById(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("idd", id, dbType: DbType.Int32, ParameterDirection.Input);
+            IEnumerable<Gpoffer> result = _dbContext.Connection.Query<Gpoffer>("GP_Offer_Package.GetAllOfferByLenderId", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+           
+        }
+
         public List<Gpoffer> GetAllOffers()
         {
             IEnumerable<Gpoffer> result = _dbContext.Connection.Query<Gpoffer>("GP_Offer_Package.GetAllOffers", commandType: CommandType.StoredProcedure);

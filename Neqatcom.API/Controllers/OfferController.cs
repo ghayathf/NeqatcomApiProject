@@ -23,6 +23,16 @@ namespace Neqatcom.API.Controllers
             return _offerService.GetAllOffers();
         }
         [HttpGet]
+        [Route("GetAllOffersById/{id}")]
+        public List<Gpoffer> GetAllOferById(int id)
+        {
+            return _offerService.GetAllOferById(id);
+        }
+
+
+
+
+        [HttpGet]
         [Route("GetOfferById/{id}")]
         public Gpoffer GetOfferById(int id)
         {

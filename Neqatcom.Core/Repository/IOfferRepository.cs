@@ -13,5 +13,7 @@ namespace Neqatcom.Core.Repository
         void UpdateOffer(Gpoffer offer);
         void DeleteOffer(int id);
 
+        List<Gpoffer> GetAllOferById(int id);
+
     }
 }

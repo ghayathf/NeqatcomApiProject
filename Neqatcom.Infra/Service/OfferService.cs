@@ -25,6 +25,11 @@ namespace Neqatcom.Infra.Service
             offerRepository.DeleteOffer(id);
         }
 
+        public List<Gpoffer> GetAllOferById(int id)
+        {
+           return  offerRepository.GetAllOferById(id);
+        }
+
         public List<Gpoffer> GetAllOffers()
         {
             return offerRepository.GetAllOffers();
