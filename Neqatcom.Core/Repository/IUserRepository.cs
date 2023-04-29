@@ -1,4 +1,5 @@
 ﻿using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,6 +13,6 @@ namespace Neqatcom.Core.Repository
         void CreateUser(Gpuser user);
         void UpdateUser(Gpuser user);
         void DeleteUser(int id);
-        Gpuser Auth(Gpuser login);
+        LoginClaims Auth(Gpuser login);
     }
 }

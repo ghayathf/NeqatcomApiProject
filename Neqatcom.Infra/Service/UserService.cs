@@ -40,8 +40,16 @@ namespace Neqatcom.Infra.Service
                     new Claim("Phonenumber", result.Phonenum),
                     new Claim("Email", result.Email),
                     new Claim("Imagename", result.Userimage),
-
+             
                 };
+                if (result.Role == "Lender")
+                {
+                    claims.Add(new Claim("Lenderid", result.lender_id.ToString()));
+                }
+                else if (result.Role == "Loanee")
+                {
+                    claims.Add(new Claim("Loaneeid", result.loanee_id.ToString()));
+                }
                 var tokenOptions = new JwtSecurityToken(
                     claims: claims,
                     expires: DateTime.Now.AddSeconds(60),
