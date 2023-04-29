@@ -1,4 +1,5 @@
 ﻿using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using Neqatcom.Core.Service;
 using System;
@@ -28,6 +29,11 @@ namespace Neqatcom.Infra.Service
         public List<Gploan> GetAllLoans()
         {
             return loanRepository.GetAllLoans();
+        }
+
+        public List<RequestedLoan> GetAllRequestedLoan(int LSID)
+        {
+            return loanRepository.GetAllRequestedLoan(LSID);
         }
 
         public Gploan GetLoanByID(int IDD)

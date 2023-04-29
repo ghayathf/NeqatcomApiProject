@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Service;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,12 @@ namespace Neqatcom.API.Controllers
         public List<Gploan> GetAllLoans()
         {
             return loanService.GetAllLoans();
+        }
+        [HttpGet]
+        [Route("GetAllRequestedLoans/{LSID}")]
+        public List<RequestedLoan> GetAllRequestedLoan(int LSID)
+        {
+            return loanService.GetAllRequestedLoan(LSID);
         }
         [HttpPut]
         [Route("UpdateLoan")]

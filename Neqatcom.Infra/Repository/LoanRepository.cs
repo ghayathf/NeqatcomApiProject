@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Neqatcom.Core.Common;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,15 @@ namespace Neqatcom.Infra.Repository
         public List<Gploan> GetAllLoans()
         {
             IEnumerable<Gploan> loan = dbContext.Connection.Query<Gploan>("GPLOAN_Package.GetAllLoans"
+                , commandType: CommandType.StoredProcedure);
+            return loan.ToList();
+        }
+
+        public List<RequestedLoan> GetAllRequestedLoan(int LSID)
+        {
+            var p = new DynamicParameters();
+            p.Add("LSID", LSID, DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<RequestedLoan> loan = dbContext.Connection.Query<RequestedLoan>("GPLOAN_Package.GetRequestedLoansByLS",p
                 , commandType: CommandType.StoredProcedure);
             return loan.ToList();
         }
