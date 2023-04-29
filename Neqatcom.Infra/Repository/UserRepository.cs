@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Neqatcom.Core.Common;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -74,12 +75,12 @@ namespace Neqatcom.Infra.Repository
 
             var result = _dbContext.Connection.Execute("GP_User_Package.UpdateUser", p, commandType: CommandType.StoredProcedure);
         }
-        public Gpuser Auth(Gpuser login)
+        public LoginClaims Auth(Gpuser login)
         {
             var p = new DynamicParameters();
             p.Add("usernameee", login.Username, DbType.String, direction: ParameterDirection.Input);
             p.Add("passsword", login.Password, DbType.String, direction: ParameterDirection.Input);
-            IEnumerable<Gpuser> result = _dbContext.Connection.Query<Gpuser>("GP_User_Package.LOGIN_CHECKING", p, commandType: System.Data.CommandType.StoredProcedure);
+            IEnumerable<LoginClaims> result = _dbContext.Connection.Query<LoginClaims>("GP_User_Package.LOGIN_CHECKING", p, commandType: System.Data.CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
     }
