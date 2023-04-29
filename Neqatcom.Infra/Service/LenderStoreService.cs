@@ -20,7 +20,10 @@ namespace Neqatcom.Infra.Service
         {
             _lenderStoreRepository.createLenderStore(gplenderstore);
         }
-
+        public List<LoaneesForLendercs> GetAllLoaneesForLendercs(int id)
+        {
+            return _lenderStoreRepository.GetAllLoaneesForLendercs(id);
+        }
         public void DeleteLenderStore(int id)
         {
             _lenderStoreRepository.DeleteLenderStore(id);

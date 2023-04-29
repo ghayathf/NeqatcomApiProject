@@ -63,6 +63,15 @@ namespace Neqatcom.Infra.Repository
 
             return gplenderstores.FirstOrDefault();
         }
+        public List<LoaneesForLendercs> GetAllLoaneesForLendercs(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("ID_", id, DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<LoaneesForLendercs> gplenderstores = _dbContext.Connection.Query<LoaneesForLendercs>("GP_LENDERSTORE_PACKAGE.LOANEESFORLENDER", p, commandType: CommandType.StoredProcedure);
+
+            return gplenderstores.ToList();
+        }
 
         public void UpdateLenderStore(Gplenderstore gplenderstore)
         {
