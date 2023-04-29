@@ -20,6 +20,7 @@ namespace Neqatcom.Infra.Service
         }
         public string Auth(Gpuser login)
         {
+            
             var result = userRepository.Auth(login);
             if (result == null)
             {
