@@ -45,5 +45,10 @@ namespace Neqatcom.Infra.Service
         {
             loanRepository.UpdateLoan(loan);
         }
+
+        public void UpdateLoanStatus(int LoanID, int status)
+        {
+            loanRepository.UpdateLoanStatus(LoanID, status);
+        }
     }
 }

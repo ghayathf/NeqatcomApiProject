@@ -85,5 +85,13 @@ namespace Neqatcom.Infra.Repository
 
             dbContext.Connection.Execute("GPLOAN_Package.UpdateLoan", p, commandType: CommandType.StoredProcedure);
         }
+
+        public void UpdateLoanStatus(int LoanID, int status)
+        {
+            var p = new DynamicParameters();
+            p.Add("IDD", LoanID, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("newStatus", status, DbType.Int32, direction: ParameterDirection.Input);
+            dbContext.Connection.Execute("GPLOAN_Package.updateLoanStatus", p, commandType: CommandType.StoredProcedure);
+        }
     }
 }

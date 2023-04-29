@@ -14,5 +14,6 @@ namespace Neqatcom.Core.Repository
         Gploan GetLoanByID(int IDD);
         List<Gploan> GetAllLoans();
         List<RequestedLoan> GetAllRequestedLoan(int LSID);
+        void UpdateLoanStatus(int LoanID,int status);
     }
 }

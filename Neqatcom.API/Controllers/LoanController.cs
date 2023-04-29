@@ -55,6 +55,12 @@ namespace Neqatcom.API.Controllers
         {
             loanService.UpdateLoan(loan);
         }
+        [HttpPut]
+        [Route("UpdateLoan/{LoanID}/{status}")]
+        public void UpdateLoanStatus(int LoanID, int status)
+        {
+            loanService.UpdateLoanStatus(LoanID, status);
+        }
 
     }
 }
