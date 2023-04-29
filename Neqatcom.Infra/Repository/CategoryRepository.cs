@@ -14,6 +14,10 @@ namespace Neqatcom.Infra.Repository
     public class CategoryRepository : ICategoryRepository
     {
         private readonly IDbContext _dbContext;
+        public CategoryRepository(IDbContext dbContext)
+        {
+            this._dbContext = dbContext;
+        }
         public void CreateCategory(Gpcategory gpcategory)
         {
             var p = new DynamicParameters();
@@ -33,12 +37,12 @@ namespace Neqatcom.Infra.Repository
         public async Task<List<Gpcategory>> GetAllCategories()
         {
             var p = new DynamicParameters();
-            var result = await _dbContext.Connection.QueryAsync<Gpcategory, Gpoffer, Gpcategory>("GP_Category_PACKAGE.GetAllCategory", (category, offer) =>
+             var result = await _dbContext.Connection.QueryAsync<Gpcategory, Gpoffer, Gpcategory>("GP_Category_PACKAGE.GetAllCategory", (category, offer) =>
             {
                 category.Gpoffers.Add(offer);
                 return category;
             },
-            splitOn: "Id,Id"
+            splitOn: "offerid"
             ,
             param: null,
             commandType: CommandType.StoredProcedure);
