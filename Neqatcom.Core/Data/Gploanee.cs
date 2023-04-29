@@ -22,6 +22,7 @@ namespace Neqatcom.Core.Data
         public decimal? Creditscore { get; set; }
         public decimal? Loaneeuserid { get; set; }
         public decimal? Warncounter { get; set; }
+        public decimal? Postponecounter { get; set; }
 
         public virtual Gpuser Loaneeuser { get; set; }
         public virtual ICollection<Gpcomplaint> Gpcomplaints { get; set; }

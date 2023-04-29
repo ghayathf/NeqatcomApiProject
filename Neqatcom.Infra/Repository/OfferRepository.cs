@@ -24,7 +24,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("des", offer.Descriptions, dbType: DbType.String, ParameterDirection.Input);
             p.Add("CID", offer.Categoryid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("LID", offer.Lenderid, dbType: DbType.Int32, ParameterDirection.Input);
-
+            p.Add("minmonth_", offer.Minmonth, dbType: DbType.Int32, ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("GP_Offer_Package.CreateOffer", p, commandType: CommandType.StoredProcedure);
         }
@@ -59,7 +59,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("des", offer.Descriptions, dbType: DbType.String, ParameterDirection.Input);
             p.Add("CID", offer.Categoryid, dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("LID", offer.Lenderid, dbType: DbType.Int32, ParameterDirection.Input);
-
+            p.Add("minmonth_", offer.Minmonth, dbType: DbType.Int32, ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("GP_Offer_Package.UpdateOffer", p, commandType: CommandType.StoredProcedure);
         }

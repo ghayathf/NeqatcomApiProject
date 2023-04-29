@@ -18,7 +18,7 @@ namespace Neqatcom.API.Controllers
         }
         [HttpGet]
         [Route("GetAllCategories")]
-        public Task<List<Gpcategory>> GetAllCategories()
+        public List<Gpcategory> GetAllCategories()
         {
             return _categoryService.GetAllCategories();
         }

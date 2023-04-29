@@ -27,7 +27,7 @@ namespace Neqatcom.Infra.Service
             _categoryRepository.DeleteCategory(id);
         }
 
-        public Task<List<Gpcategory>> GetAllCategories()
+        public List<Gpcategory> GetAllCategories()
         {
             return _categoryRepository.GetAllCategories();
         }

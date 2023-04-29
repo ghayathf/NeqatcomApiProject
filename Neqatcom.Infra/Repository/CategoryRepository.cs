@@ -30,27 +30,13 @@ namespace Neqatcom.Infra.Repository
             _dbContext.Connection.Execute("GP_Category_PACKAGE.DeleteCategory", p, commandType: CommandType.StoredProcedure);
         }
 
-        public async Task<List<Gpcategory>> GetAllCategories()
+        public List<Gpcategory> GetAllCategories()
         {
-            var p = new DynamicParameters();
-            var result = await _dbContext.Connection.QueryAsync<Gpcategory, Gpoffer, Gpcategory>("GP_Category_PACKAGE.GetAllCategory", (category, offer) =>
-            {
-                category.Gpoffers.Add(offer);
-                return category;
-            },
-            splitOn: "Id,Id"
-            ,
-            param: null,
-            commandType: CommandType.StoredProcedure);
+            IEnumerable<Gpcategory> category = _dbContext.Connection.Query<Gpcategory>("GPLOAN_Package.GetAllLoans"
+                , commandType: CommandType.StoredProcedure);
+            return category.ToList();
 
-            var results = result.GroupBy(p => p.Categoryid).Select(g =>
-            {
-                var groupedPost = g.First();
-                groupedPost.Gpoffers = g.Select(p => p.Gpoffers.Single()).ToList();
-                return groupedPost;
-            });
-
-            return result.ToList();
+            
         }
 
         public Gpcategory GetCategoryById(int id)
@@ -70,5 +56,7 @@ namespace Neqatcom.Infra.Repository
 
             _dbContext.Connection.Execute("GP_Category_PACKAGE.CreateCategory", p, commandType: CommandType.StoredProcedure);
         }
+
+       
     }
 }

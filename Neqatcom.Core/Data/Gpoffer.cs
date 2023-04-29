@@ -17,6 +17,7 @@ namespace Neqatcom.Core.Data
         public string Descriptions { get; set; }
         public decimal? Lenderid { get; set; }
         public decimal? Categoryid { get; set; }
+        public decimal? Minmonth { get; set; }
 
         public virtual Gpcategory Category { get; set; }
         public virtual Gplenderstore Lender { get; set; }

@@ -8,7 +8,7 @@ namespace Neqatcom.Core.Service
 {
     public interface ICategoryService
     {
-        Task<List<Gpcategory>> GetAllCategories();
+        List<Gpcategory>GetAllCategories();
         Gpcategory GetCategoryById(int id);
         void CreateCategory(Gpcategory gpcategory);
         void UpdateCategory(Gpcategory gpcategory);
