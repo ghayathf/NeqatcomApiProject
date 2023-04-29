@@ -14,6 +14,10 @@ namespace Neqatcom.Infra.Repository
     public class CategoryRepository : ICategoryRepository
     {
         private readonly IDbContext _dbContext;
+        public CategoryRepository(IDbContext dbContext)
+        {
+            this._dbContext = dbContext;
+        }
         public void CreateCategory(Gpcategory gpcategory)
         {
             var p = new DynamicParameters();
