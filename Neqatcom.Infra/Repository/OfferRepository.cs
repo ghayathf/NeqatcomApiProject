@@ -18,7 +18,7 @@ namespace Neqatcom.Infra.Repository
             this._dbContext = dbContext;
         }
         public void CreateOffer(Gpoffer offer)
-        {
+        { 
             var p = new DynamicParameters();
             p.Add("months", offer.Totalmonths , dbType: DbType.Int32, ParameterDirection.Input);
             p.Add("des", offer.Descriptions, dbType: DbType.String, ParameterDirection.Input);
