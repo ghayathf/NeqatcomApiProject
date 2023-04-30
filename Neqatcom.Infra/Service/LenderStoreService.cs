@@ -24,6 +24,10 @@ namespace Neqatcom.Infra.Service
         {
             return _lenderStoreRepository.GetAllLoaneesForLendercs(id);
         }
+        public List<LoanOffer> GetAllLoanOffer(int lenderid, int loaneeid)
+        {
+            return _lenderStoreRepository.GetAllLoanOffer(lenderid, loaneeid);
+        }
         public void DeleteLenderStore(int id)
         {
             _lenderStoreRepository.DeleteLenderStore(id);
