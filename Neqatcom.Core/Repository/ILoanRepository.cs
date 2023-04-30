@@ -13,7 +13,7 @@ namespace Neqatcom.Core.Repository
         void DeleteLoan(int IDD);
         Gploan GetLoanByID(int IDD);
         List<Gploan> GetAllLoans();
-        List<RequestedLoan> GetAllRequestedLoan(int LSID);
+        List<RequestedLoan> GetAllRequestedLoan(int LSID,int statuss);
         void UpdateLoanStatus(int LoanID,int status);
     }
 }

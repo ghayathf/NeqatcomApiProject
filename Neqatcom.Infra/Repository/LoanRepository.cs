@@ -50,10 +50,12 @@ namespace Neqatcom.Infra.Repository
             return loan.ToList();
         }
 
-        public List<RequestedLoan> GetAllRequestedLoan(int LSID)
+        public List<RequestedLoan> GetAllRequestedLoan(int LSID, int statuss)
         {
             var p = new DynamicParameters();
             p.Add("LSID", LSID, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("statuss", statuss, DbType.Int32, direction: ParameterDirection.Input);
+
             IEnumerable<RequestedLoan> loan = dbContext.Connection.Query<RequestedLoan>("GPLOAN_Package.GetRequestedLoansByLS",p
                 , commandType: CommandType.StoredProcedure);
             return loan.ToList();

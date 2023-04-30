@@ -31,9 +31,9 @@ namespace Neqatcom.Infra.Service
             return loanRepository.GetAllLoans();
         }
 
-        public List<RequestedLoan> GetAllRequestedLoan(int LSID)
+        public List<RequestedLoan> GetAllRequestedLoan(int LSID,int statuss)
         {
-            return loanRepository.GetAllRequestedLoan(LSID);
+            return loanRepository.GetAllRequestedLoan(LSID, statuss);
         }
 
         public Gploan GetLoanByID(int IDD)

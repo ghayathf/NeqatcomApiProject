@@ -44,10 +44,10 @@ namespace Neqatcom.API.Controllers
             return loanService.GetAllLoans();
         }
         [HttpGet]
-        [Route("GetAllRequestedLoans/{LSID}")]
-        public List<RequestedLoan> GetAllRequestedLoan(int LSID)
+        [Route("GetAllStatusLoans/{LSID}/{statuss}")]
+        public List<RequestedLoan> GetAllStatusLoan(int LSID,int statuss)
         {
-            return loanService.GetAllRequestedLoan(LSID);
+            return loanService.GetAllRequestedLoan(LSID, statuss);
         }
         [HttpPut]
         [Route("UpdateLoan")]
