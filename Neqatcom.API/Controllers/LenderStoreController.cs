@@ -34,6 +34,12 @@ namespace Neqatcom.API.Controllers
         {
             return _lenderStoreService.GetLenderStoreById(id);
         }
+        [HttpGet]
+        [Route("LoaneesForLenders/{id}")]
+        public List<LoaneesForLendercs> GetAllLoaneesForLendercs(int id)
+        {
+            return _lenderStoreService.GetAllLoaneesForLendercs(id);
+        }
         [HttpPost]
         [Route("createLenderStore")]
        public void createLenderStore(Gplenderstore gplenderstore)

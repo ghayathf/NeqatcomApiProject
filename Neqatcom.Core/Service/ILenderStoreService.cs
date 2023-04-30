@@ -10,6 +10,7 @@ namespace Neqatcom.Core.Service
     {
         List<Gplenderstore> GetAllLenderStore();
         List<LenderUser> GetAllLenderUser();
+        List<LoaneesForLendercs> GetAllLoaneesForLendercs(int id);
         Gplenderstore GetLenderStoreById(int id);
         void createLenderStore(Gplenderstore gplenderstore);
         void UpdateLenderStore(Gplenderstore gplenderstore);
