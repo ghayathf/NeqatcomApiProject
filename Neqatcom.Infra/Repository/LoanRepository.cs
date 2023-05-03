@@ -19,6 +19,19 @@ namespace Neqatcom.Infra.Repository
             this.dbContext = dbContext;
         }
 
+        public void ConfirmNewLoanInfo(Gploan loan)
+        {
+            var p = new DynamicParameters();
+            p.Add("LoanIDD", loan.Loanid, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("TotalMon", loan.Totalmonths, DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("TotalPri", loan.Totalprice, DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("MonAmount", loan.Monthlyamount, DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("Startd", loan.Startdate, DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("Endd", loan.Enddate, DbType.DateTime, direction: ParameterDirection.Input);
+
+            dbContext.Connection.Execute("GPLOAN_Package.ConfirmNewLoanInfo", p, commandType: CommandType.StoredProcedure);
+        }
+
         public void CreateLoan(Gploan loan)
         {
             var p = new DynamicParameters();

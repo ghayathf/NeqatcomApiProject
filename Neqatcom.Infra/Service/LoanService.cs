@@ -16,6 +16,11 @@ namespace Neqatcom.Infra.Service
             this.loanRepository = loanRepository;
         }
 
+        public void ConfirmNewLoanInfo(Gploan loan)
+        {
+            loanRepository.ConfirmNewLoanInfo(loan);
+        }
+
         public void CreateLoan(Gploan loan)
         {
             loanRepository.CreateLoan(loan);
