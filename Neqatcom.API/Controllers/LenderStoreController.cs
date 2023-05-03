@@ -29,6 +29,12 @@ namespace Neqatcom.API.Controllers
             return _lenderStoreService.GetAllLenderUser();
         }
         [HttpGet]
+        [Route("GetAllLoanOffer/{lednerid}/{loaneeid}")]
+        public List<LoanOffer> GetAllLoanOffer(int lenderid, int loaneeid)
+        {
+            return _lenderStoreService.GetAllLoanOffer(lenderid, loaneeid);
+        }
+        [HttpGet]
         [Route("GetLenderStoreById/{id}")]
        public Gplenderstore GetLenderStoreById(int id)
         {
