@@ -75,8 +75,8 @@ namespace Neqatcom.Infra.Repository
         public List<LoanOffer> GetAllLoanOffer(int lenderid, int loaneeid)
         {
             var p = new DynamicParameters();
-            p.Add("LenderID", lenderid, DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("LoaneeID", loaneeid, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("LenderIDD", lenderid, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("LoaneeIDD", loaneeid, DbType.Int32, direction: ParameterDirection.Input);
 
             IEnumerable<LoanOffer> gplenderstores = _dbContext.Connection.Query<LoanOffer>("GP_LENDERSTORE_PACKAGE.LoansForLoanee", p, commandType: CommandType.StoredProcedure);
 
