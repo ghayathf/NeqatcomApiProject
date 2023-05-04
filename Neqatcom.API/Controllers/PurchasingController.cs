@@ -41,6 +41,7 @@ namespace Neqatcom.API.Controllers
         {
             purchasingrService.UpdatePurchasing(purchasing);
         }
+
         [HttpDelete]
         [Route("DeletePurchasing/{id}")]
         public void DeletePurchasing(int id)
