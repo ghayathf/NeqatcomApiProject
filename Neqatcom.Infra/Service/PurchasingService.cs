@@ -35,6 +35,11 @@ namespace Neqatcom.Infra.Service
             return purchasingRepository.GetPurchasingById(id);
         }
 
+        public List<Gppurchasing> GettAllPayments(int id)
+        {
+            return purchasingRepository.GettAllPayments(id);
+        }
+
         public void UpdatePurchasing(Gppurchasing purchasing)
         {
             purchasingRepository.UpdatePurchasing(purchasing);

@@ -47,5 +47,11 @@ namespace Neqatcom.API.Controllers
         {
             purchasingrService.DeletePurchasing(id);
         }
+        [HttpGet]
+        [Route("GettAllPayments/{id}")]
+        public List<Gppurchasing> GettAllPayments(int id)
+        {
+            return purchasingrService.GettAllPayments(id);
+        }
     }
 }
