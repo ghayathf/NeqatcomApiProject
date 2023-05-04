@@ -52,7 +52,7 @@ namespace Neqatcom.Infra.Repository
         public List<Gppurchasing> GettAllPayments(int id)
         {
             var p = new DynamicParameters();
-            p.Add("LOANID", id, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("LOANIDD", id, dbType: DbType.Int32, ParameterDirection.Input);
             IEnumerable<Gppurchasing> result = _dbContext.Connection.Query<Gppurchasing>("GP_Purchasing_Package.GETALLPAYMENTS", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
