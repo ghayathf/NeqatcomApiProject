@@ -54,5 +54,11 @@ namespace Neqatcom.API.Controllers
         {
             return purchasingrService.GettAllPayments(id);
         }
+        [HttpPut]
+        [Route("ForGiveMonthly/{id}")]
+        public void ForGiveMonthly(int id)
+        {
+            purchasingrService.ForGiveMonthly(id);
+        }
     }
 }

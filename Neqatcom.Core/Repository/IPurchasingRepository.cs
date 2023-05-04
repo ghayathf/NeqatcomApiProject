@@ -13,5 +13,7 @@ namespace Neqatcom.Core.Repository
         void UpdatePurchasing(Gppurchasing purchasing);
         void DeletePurchasing(int id);
         List<Gppurchasing> GettAllPayments(int id);
+        void ForGiveMonthly(int id);
+
     }
 }

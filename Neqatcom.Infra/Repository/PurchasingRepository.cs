@@ -35,6 +35,13 @@ namespace Neqatcom.Infra.Repository
             var result = _dbContext.Connection.Execute("GP_Purchasing_Package.DELETEPurchasing", p, commandType: CommandType.StoredProcedure);
         }
 
+        public void ForGiveMonthly(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("LOANIDD", id, dbType: DbType.Int32, ParameterDirection.Input);
+            var result = _dbContext.Connection.Execute("GP_Purchasing_Package.FORGIVELOANEE", p, commandType: CommandType.StoredProcedure);
+        }
+
         public List<Gppurchasing> GetAllPurchasing()
         {
             IEnumerable<Gppurchasing> result = _dbContext.Connection.Query<Gppurchasing>("GP_Purchasing_Package.GetAllPurchasing", commandType: CommandType.StoredProcedure);
@@ -52,7 +59,7 @@ namespace Neqatcom.Infra.Repository
         public List<Gppurchasing> GettAllPayments(int id)
         {
             var p = new DynamicParameters();
-            p.Add("LOANID", id, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("LOANIDD", id, dbType: DbType.Int32, ParameterDirection.Input);
             IEnumerable<Gppurchasing> result = _dbContext.Connection.Query<Gppurchasing>("GP_Purchasing_Package.GETALLPAYMENTS", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
