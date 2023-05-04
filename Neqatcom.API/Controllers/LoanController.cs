@@ -61,6 +61,17 @@ namespace Neqatcom.API.Controllers
         {
             loanService.UpdateLoanStatus(LoanID, status);
         }
-
+        [HttpPut]
+        [Route("ConfirmNewLoanInfo")]
+        public void ConfirmNewLoanInfo(Gploan loan)
+        {
+            loanService.ConfirmNewLoanInfo(loan);
+        }
+        [HttpGet]
+        [Route("ExistingLoanCounter/{LoaneeID}")]
+        public int ExistingLoanCounter(int LoaneeID)
+        {
+            return loanService.ExistingLoanCounter(LoaneeID);
+        }
     }
 }

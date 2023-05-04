@@ -19,6 +19,19 @@ namespace Neqatcom.Infra.Repository
             this.dbContext = dbContext;
         }
 
+        public void ConfirmNewLoanInfo(Gploan loan)
+        {
+            var p = new DynamicParameters();
+            p.Add("LoanIDD", loan.Loanid, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("TotalMon", loan.Totalmonths, DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("TotalPri", loan.Totalprice, DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("MonAmount", loan.Monthlyamount, DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("Startd", loan.Startdate, DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("Endd", loan.Enddate, DbType.DateTime, direction: ParameterDirection.Input);
+
+            dbContext.Connection.Execute("GPLOAN_Package.ConfirmNewLoanInfo", p, commandType: CommandType.StoredProcedure);
+        }
+
         public void CreateLoan(Gploan loan)
         {
             var p = new DynamicParameters();
@@ -42,6 +55,16 @@ namespace Neqatcom.Infra.Repository
             p.Add("IDD", IDD, DbType.Int32, direction: ParameterDirection.Input);
             dbContext.Connection.Execute("GPLOAN_Package.DeleteLoan", p, commandType: CommandType.StoredProcedure);
         }
+
+        public int ExistingLoanCounter(int LoaneeID)
+        {
+            var p = new DynamicParameters();
+            p.Add("inLoaneeId", LoaneeID, DbType.Int32, direction: ParameterDirection.Input);
+            var loanCount = dbContext.Connection.QueryFirstOrDefault<int>(
+                "GPLOAN_Package.getLoanCountForLoaneeId", p, commandType: CommandType.StoredProcedure);
+            return loanCount;
+        }
+
 
         public List<Gploan> GetAllLoans()
         {

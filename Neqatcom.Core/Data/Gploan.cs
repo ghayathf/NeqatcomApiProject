@@ -9,6 +9,7 @@ namespace Neqatcom.Core.Data
     {
         public Gploan()
         {
+            Gpmeetings = new HashSet<Gpmeeting>();
             Gppurchasings = new HashSet<Gppurchasing>();
         }
 
@@ -25,10 +26,11 @@ namespace Neqatcom.Core.Data
         public decimal? Loaneeid { get; set; }
         public decimal? Loanstatus { get; set; }
         public decimal? Postponestatus { get; set; }
-        public string Postponedate { get; set; }
+        public DateTime? Postponedate { get; set; }
 
         public virtual Gploanee Loanee { get; set; }
         public virtual Gpoffer Offer { get; set; }
+        public virtual ICollection<Gpmeeting> Gpmeetings { get; set; }
         public virtual ICollection<Gppurchasing> Gppurchasings { get; set; }
     }
 }

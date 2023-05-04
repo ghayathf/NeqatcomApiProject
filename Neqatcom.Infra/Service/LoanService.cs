@@ -16,6 +16,11 @@ namespace Neqatcom.Infra.Service
             this.loanRepository = loanRepository;
         }
 
+        public void ConfirmNewLoanInfo(Gploan loan)
+        {
+            loanRepository.ConfirmNewLoanInfo(loan);
+        }
+
         public void CreateLoan(Gploan loan)
         {
             loanRepository.CreateLoan(loan);
@@ -24,6 +29,11 @@ namespace Neqatcom.Infra.Service
         public void DeleteLoan(int IDD)
         {
             loanRepository.DeleteLoan(IDD);
+        }
+
+        public int ExistingLoanCounter(int LoaneeID)
+        {
+            return loanRepository.ExistingLoanCounter(LoaneeID);
         }
 
         public List<Gploan> GetAllLoans()

@@ -14,8 +14,10 @@ namespace Neqatcom.Core.Data
         public string Meetingtime { get; set; }
         public decimal? Loaneeid { get; set; }
         public decimal? Lenderid { get; set; }
+        public decimal? Loanid { get; set; }
 
         public virtual Gplenderstore Lender { get; set; }
+        public virtual Gploan Loan { get; set; }
         public virtual Gploanee Loanee { get; set; }
     }
 }
