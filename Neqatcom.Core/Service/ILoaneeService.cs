@@ -15,5 +15,6 @@ namespace Neqatcom.Core.Service
         List<Gploanee> GetAllLoanees();
         List<LoaneeUser> GetAllLoaneeUser();
 
+
     }
 }

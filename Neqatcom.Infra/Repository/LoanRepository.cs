@@ -74,6 +74,17 @@ namespace Neqatcom.Infra.Repository
             return loan.ToList();
         }
 
+        public List<RequestedLoan> GetAllRequestedPostPone(int LSID, int statuss)
+        {
+            var p = new DynamicParameters();
+            p.Add("LSID", LSID, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("statuss", statuss, DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<RequestedLoan> loan = dbContext.Connection.Query<RequestedLoan>("GPLOAN_Package.GetRequestedPostponeByLS", p
+                , commandType: CommandType.StoredProcedure);
+            return loan.ToList();
+        }
+
         public Gploan GetLoanByID(int IDD)
         {
             var p = new DynamicParameters();
@@ -107,6 +118,15 @@ namespace Neqatcom.Infra.Repository
             p.Add("IDD", LoanID, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("newStatus", status, DbType.Int32, direction: ParameterDirection.Input);
             dbContext.Connection.Execute("GPLOAN_Package.updateLoanStatus", p, commandType: CommandType.StoredProcedure);
+        }
+
+        public void UpdatePostponeStatus(int LoanID, int status, int loaneeidd)
+        {
+            var p = new DynamicParameters();
+            p.Add("IDD", LoanID, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("newStatus", status, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("loaneeidd", loaneeidd, DbType.Int32, direction: ParameterDirection.Input);
+            dbContext.Connection.Execute("GPLOAN_Package.updatePostponeStatus", p, commandType: CommandType.StoredProcedure);
         }
     }
 }
