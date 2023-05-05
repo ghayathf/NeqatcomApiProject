@@ -80,5 +80,11 @@ namespace Neqatcom.API.Controllers
             loanService.UpdatePostponeStatus(LoanID, status,loaneeidd);
         }
 
+        [HttpGet]
+        [Route("ExistingLoanCounter/{LoaneeID}")]
+        public int ExistingLoanCounter(int LoaneeID)
+        {
+            return loanService.ExistingLoanCounter(LoaneeID);
+        }
     }
 }

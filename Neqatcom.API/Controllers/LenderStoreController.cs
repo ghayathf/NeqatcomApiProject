@@ -29,7 +29,7 @@ namespace Neqatcom.API.Controllers
             return _lenderStoreService.GetAllLenderUser();
         }
         [HttpGet]
-        [Route("GetAllLoanOffer/{lednerid}/{loaneeid}")]
+        [Route("GetAllLoanOffer/{lenderid}/{loaneeid}")]
         public List<LoanOffer> GetAllLoanOffer(int lenderid, int loaneeid)
         {
             return _lenderStoreService.GetAllLoanOffer(lenderid, loaneeid);

@@ -16,6 +16,7 @@ namespace Neqatcom.Core.Repository
         List<RequestedLoan> GetAllRequestedLoan(int LSID,int statuss);
         void UpdateLoanStatus(int LoanID,int status);
         void ConfirmNewLoanInfo(Gploan loan);
+        int ExistingLoanCounter(int LoaneeID);
         List<RequestedLoan> GetAllRequestedPostPone(int LSID, int statuss);
         void UpdatePostponeStatus(int LoanID, int status,int loaneeidd);
     }

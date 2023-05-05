@@ -25,6 +25,11 @@ namespace Neqatcom.Infra.Service
             purchasingRepository.DeletePurchasing(id);
         }
 
+        public void ForGiveMonthly(int id)
+        {
+            purchasingRepository.ForGiveMonthly(id);
+        }
+
         public List<Gppurchasing> GetAllPurchasing()
         {
             return purchasingRepository.GetAllPurchasing();
@@ -33,6 +38,11 @@ namespace Neqatcom.Infra.Service
         public Gppurchasing GetPurchasingById(int id)
         {
             return purchasingRepository.GetPurchasingById(id);
+        }
+
+        public List<Gppurchasing> GettAllPayments(int id)
+        {
+            return purchasingRepository.GettAllPayments(id);
         }
 
         public void UpdatePurchasing(Gppurchasing purchasing)

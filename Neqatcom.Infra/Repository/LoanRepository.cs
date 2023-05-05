@@ -56,6 +56,16 @@ namespace Neqatcom.Infra.Repository
             dbContext.Connection.Execute("GPLOAN_Package.DeleteLoan", p, commandType: CommandType.StoredProcedure);
         }
 
+        public int ExistingLoanCounter(int LoaneeID)
+        {
+            var p = new DynamicParameters();
+            p.Add("inLoaneeId", LoaneeID, DbType.Int32, direction: ParameterDirection.Input);
+            var loanCount = dbContext.Connection.QueryFirstOrDefault<int>(
+                "GPLOAN_Package.getLoanCountForLoaneeId", p, commandType: CommandType.StoredProcedure);
+            return loanCount;
+        }
+
+
         public List<Gploan> GetAllLoans()
         {
             IEnumerable<Gploan> loan = dbContext.Connection.Query<Gploan>("GPLOAN_Package.GetAllLoans"

@@ -31,6 +31,11 @@ namespace Neqatcom.Infra.Service
             loanRepository.DeleteLoan(IDD);
         }
 
+        public int ExistingLoanCounter(int LoaneeID)
+        {
+            return loanRepository.ExistingLoanCounter(LoaneeID);
+        }
+
         public List<Gploan> GetAllLoans()
         {
             return loanRepository.GetAllLoans();

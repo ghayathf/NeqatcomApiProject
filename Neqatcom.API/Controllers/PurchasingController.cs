@@ -41,11 +41,24 @@ namespace Neqatcom.API.Controllers
         {
             purchasingrService.UpdatePurchasing(purchasing);
         }
+
         [HttpDelete]
         [Route("DeletePurchasing/{id}")]
         public void DeletePurchasing(int id)
         {
             purchasingrService.DeletePurchasing(id);
+        }
+        [HttpGet]
+        [Route("GettAllPayments/{id}")]
+        public List<Gppurchasing> GettAllPayments(int id)
+        {
+            return purchasingrService.GettAllPayments(id);
+        }
+        [HttpPut]
+        [Route("ForGiveMonthly/{id}")]
+        public void ForGiveMonthly(int id)
+        {
+            purchasingrService.ForGiveMonthly(id);
         }
     }
 }
