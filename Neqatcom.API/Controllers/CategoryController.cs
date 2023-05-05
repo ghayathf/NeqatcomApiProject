@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Neqatcom.Core.Data;
 using Neqatcom.Core.Service;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Neqatcom.API.Controllers
@@ -45,6 +47,23 @@ namespace Neqatcom.API.Controllers
        public void DeleteCategory(int id)
         {
             _categoryService.DeleteCategory(id);
+        }
+        [Route("UploadImage")]
+        [HttpPost]
+        public Gpcategory UploadImage()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullpath = Path.Combine("C:\\neqatcom_Angular\\src\\assets\\HomeAssets\\images", fileName);
+
+            using (var stream = new FileStream(fullpath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+
+            Gpcategory item = new Gpcategory();
+            item.Categoryimage = fileName;
+            return item;
         }
     }
 }
