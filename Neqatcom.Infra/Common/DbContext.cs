@@ -21,7 +21,7 @@ namespace Neqatcom.Infra.Common
         public DbConnection Connection
         {
             get
-            {
+            { 
                 if (_Connection == null)
                 {
                     _Connection = new OracleConnection(_configuration["ConnectionStrings:DefaultConnection"]);
