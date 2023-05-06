@@ -50,7 +50,7 @@ namespace Neqatcom.API.Controllers
         }
         [Route("UploadImage")]
         [HttpPost]
-        public Gpcategory UploadImage()
+        public Gpcategory UploadImage() 
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
