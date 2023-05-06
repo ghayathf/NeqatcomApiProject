@@ -41,7 +41,13 @@ namespace Neqatcom.Infra.Repository
             p.Add("LOANIDD", id, dbType: DbType.Int32, ParameterDirection.Input);
             var result = _dbContext.Connection.Execute("GP_Purchasing_Package.FORGIVELOANEE", p, commandType: CommandType.StoredProcedure);
         }
+        public void PayCash(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("LOANIDD", id, dbType: DbType.Int32, ParameterDirection.Input);
+            var result = _dbContext.Connection.Execute("GP_Purchasing_Package.PayCash", p, commandType: CommandType.StoredProcedure);
 
+        }
         public List<Gppurchasing> GetAllPurchasing()
         {
             IEnumerable<Gppurchasing> result = _dbContext.Connection.Query<Gppurchasing>("GP_Purchasing_Package.GetAllPurchasing", commandType: CommandType.StoredProcedure);

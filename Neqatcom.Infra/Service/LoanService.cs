@@ -46,6 +46,11 @@ namespace Neqatcom.Infra.Service
             return loanRepository.GetAllRequestedLoan(LSID, statuss);
         }
 
+        public List<RequestedLoan> GetAllRequestedPostPone(int LSID, int statuss)
+        {
+            return loanRepository.GetAllRequestedPostPone(LSID, statuss);
+        }
+
         public Gploan GetLoanByID(int IDD)
         {
             return loanRepository.GetLoanByID(IDD);
@@ -59,6 +64,11 @@ namespace Neqatcom.Infra.Service
         public void UpdateLoanStatus(int LoanID, int status)
         {
             loanRepository.UpdateLoanStatus(LoanID, status);
+        }
+
+        public void UpdatePostponeStatus(int LoanID, int status, int loaneeidd)
+        {
+            loanRepository.UpdatePostponeStatus(LoanID, status,loaneeidd);
         }
     }
 }

@@ -18,5 +18,7 @@ namespace Neqatcom.Core.Service
         void ConfirmNewLoanInfo(Gploan loan);
         int ExistingLoanCounter(int LoaneeID);
 
+        List<RequestedLoan> GetAllRequestedPostPone(int LSID, int statuss);
+        void UpdatePostponeStatus(int LoanID, int status,int loaneeidd);
     }
 }

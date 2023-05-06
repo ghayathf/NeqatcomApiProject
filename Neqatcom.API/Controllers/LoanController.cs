@@ -68,6 +68,19 @@ namespace Neqatcom.API.Controllers
             loanService.ConfirmNewLoanInfo(loan);
         }
         [HttpGet]
+        [Route("GetAllPostponeRequests/{LSID}/{statuss}")]
+        public List<RequestedLoan> GetAllPostponeRequests(int LSID, int statuss)
+        {
+            return loanService.GetAllRequestedPostPone(LSID, statuss);
+        }
+        [HttpPut]
+        [Route("UpdatePostponeStatus/{LoanID}/{status}/{loaneeidd}")]
+        public void UpdatePostponeStatus(int LoanID, int status, int loaneeidd)
+        {
+            loanService.UpdatePostponeStatus(LoanID, status,loaneeidd);
+        }
+
+        [HttpGet]
         [Route("ExistingLoanCounter/{LoaneeID}")]
         public int ExistingLoanCounter(int LoaneeID)
         {

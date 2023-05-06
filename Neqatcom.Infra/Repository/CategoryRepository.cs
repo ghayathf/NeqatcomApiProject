@@ -36,10 +36,9 @@ namespace Neqatcom.Infra.Repository
 
         public List<Gpcategory> GetAllCategories()
         {
-            IEnumerable<Gpcategory> category = _dbContext.Connection.Query<Gpcategory>("GPLOAN_Package.GetAllLoans"
+            IEnumerable<Gpcategory> category = _dbContext.Connection.Query<Gpcategory>("GP_Category_PACKAGE.GetAllCategory"
                 , commandType: CommandType.StoredProcedure);
             return category.ToList();
-
             
         }
 
@@ -58,7 +57,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("cat_name", gpcategory.Categoryname, DbType.String, direction: ParameterDirection.Input);
             p.Add("cat_img", gpcategory.Categoryimage, DbType.String, direction: ParameterDirection.Input);
 
-            _dbContext.Connection.Execute("GP_Category_PACKAGE.CreateCategory", p, commandType: CommandType.StoredProcedure);
+            _dbContext.Connection.Execute("GP_Category_PACKAGE.UpdateCategory", p, commandType: CommandType.StoredProcedure);
         }
 
        
