@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-
+using System.Security.Cryptography;
 namespace Neqatcom.Infra.Repository
 {
     public class UserRepository:IUserRepository
@@ -25,7 +25,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("Fname", user.Firstname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("Lname", user.Lastname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("emaail", user.Email, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("pass", user.Password, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("pass", EncryptPassword(user.Password), dbType: DbType.String, ParameterDirection.Input);
             p.Add("phone", user.Phonenum, dbType: DbType.String, ParameterDirection.Input);
             p.Add("addr", user.Address, dbType: DbType.String, ParameterDirection.Input);
             p.Add("R", user.Role, dbType: DbType.String, ParameterDirection.Input);
@@ -65,7 +65,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("Fname", user.Firstname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("Lname", user.Lastname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("emaail", user.Email, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("pass", user.Password, dbType: DbType.String, ParameterDirection.Input);
+            p.Add("pass", EncryptPassword(user.Password), dbType: DbType.String, ParameterDirection.Input);
             p.Add("phone", user.Phonenum, dbType: DbType.String, ParameterDirection.Input);
             p.Add("addr", user.Address, dbType: DbType.String, ParameterDirection.Input);
             p.Add("R", user.Role, dbType: DbType.String, ParameterDirection.Input);
@@ -75,11 +75,20 @@ namespace Neqatcom.Infra.Repository
 
             var result = _dbContext.Connection.Execute("GP_User_Package.UpdateUser", p, commandType: CommandType.StoredProcedure);
         }
+        public string EncryptPassword(string password)
+        {
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+                byte[] hash = md5.ComputeHash(passwordBytes);
+                return Convert.ToBase64String(hash);
+            }
+        }
         public LoginClaims Auth(Gpuser login)
         {
             var p = new DynamicParameters();
             p.Add("usernameee", login.Username, DbType.String, direction: ParameterDirection.Input);
-            p.Add("passsword", login.Password, DbType.String, direction: ParameterDirection.Input);
+            p.Add("passsword", EncryptPassword(login.Password), DbType.String, direction: ParameterDirection.Input);
             IEnumerable<LoginClaims> result = _dbContext.Connection.Query<LoginClaims>("GP_User_Package.LOGIN_CHECKING", p, commandType: System.Data.CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
