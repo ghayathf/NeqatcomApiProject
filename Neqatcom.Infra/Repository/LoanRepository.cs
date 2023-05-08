@@ -114,7 +114,7 @@ namespace Neqatcom.Infra.Repository
 
             var result = dbContext.Connection.Execute("GPLOAN_Package.RequestNewLoan",p,commandType:CommandType.StoredProcedure);
             
-        }
+        }  
 
         public void UpdateLoan(Gploan loan)
         {
