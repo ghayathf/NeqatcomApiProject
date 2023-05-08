@@ -38,6 +38,12 @@ namespace Neqatcom.API.Controllers
         {
             return userService.GetAllUsers();
         }
+        [HttpPut]
+        [Route("UpdatePassword")]
+        public void updatePassword(Gpuser gpuser)
+        {
+            userService.updatePassword(gpuser);
+        }
         [HttpGet]
         [Route("GetUserById/{id}")]
         public Gpuser GetUserById(int id)

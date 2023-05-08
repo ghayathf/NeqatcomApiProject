@@ -63,7 +63,10 @@ namespace Neqatcom.Infra.Service
         {
             userRepository.CreateUser(user);
         }
-
+        public void updatePassword(Gpuser gpuser)
+        {
+            userRepository.updatePassword(gpuser);
+        }
         public void DeleteUser(int id)
         {
             userRepository.DeleteUser(id);
