@@ -30,7 +30,7 @@ namespace Neqatcom.Core.DTO
         public decimal? Feedbackk { get; set; }
         public string Meetingtime { get; set; }
         public decimal? Loaneeid { get; set; }
-        public decimal? Lenderid { get; set; }
+        public decimal? Lenderid { get; set; } 
         public decimal? Loanid { get; set; }
         public double AVG_FEEDBACK { get; set; }
     }
