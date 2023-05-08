@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Neqatcom.Core.Common;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,11 @@ namespace Neqatcom.Infra.Repository
             p.Add("idd", id, dbType: DbType.Int32, ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("GP_Offer_Package.DELETEOffer", p, commandType: CommandType.StoredProcedure);
+        }
+        public List<LoaneeMain> GetLoaneeMain()
+        {
+            IEnumerable<LoaneeMain> result = _dbContext.Connection.Query<LoaneeMain>("GP_Offer_Package.OFFERSFORLOANEEMAIN", commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
         public List<Gpoffer> GetAllOferById(int id)
