@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Neqatcom.Infra.Repository
@@ -102,6 +103,17 @@ namespace Neqatcom.Infra.Repository
             IEnumerable<Gploan> loan = dbContext.Connection.Query<Gploan>("GPLOAN_Package.GetLoanByID", p
                 , commandType: CommandType.StoredProcedure);
             return loan.FirstOrDefault();
+        }
+
+        public void RequestNewLoan(int loaneeid, int offerid, int totalmonths)
+        {
+            var p = new DynamicParameters();
+            p.Add("loaneeidd", loaneeid, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("offeridd", offerid, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("totalmonths_", totalmonths, DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = dbContext.Connection.Execute("GPLOAN_Package.RequestNewLoan",p,commandType:CommandType.StoredProcedure);
+            
         }
 
         public void UpdateLoan(Gploan loan)

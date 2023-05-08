@@ -86,5 +86,12 @@ namespace Neqatcom.API.Controllers
         {
             return loanService.ExistingLoanCounter(LoaneeID);
         }
+
+        [HttpPost]
+        [Route("RequestNewLoan/{loaneeid}/{offerid}/{totalmonths}")]
+       public void RequestNewLoan(int loaneeid, int offerid, int totalmonths)
+        {
+            loanService.RequestNewLoan(loaneeid, offerid, totalmonths);
+        }
     }
 }
