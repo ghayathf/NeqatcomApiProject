@@ -47,6 +47,15 @@ namespace Neqatcom.Infra.Repository
             IEnumerable<Gplenderstore> result = _dbContext.Connection.Query<Gplenderstore>("GP_LENDERSTORE_PACKAGE.GETALLLENDERSTORE", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+        public LenderInfo GetLenderInfo(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("lendId", id, DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<LenderInfo> gplenderstores = _dbContext.Connection.Query<LenderInfo>("GP_LENDERSTORE_PACKAGE.lenderInfo", p, commandType: CommandType.StoredProcedure);
+
+            return gplenderstores.FirstOrDefault();
+        }
 
         public List<LenderUser> GetAllLenderUser()
         {
