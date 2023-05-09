@@ -36,6 +36,11 @@ namespace Neqatcom.Infra.Service
             return loaneeRepository.GetAllLoaneeUser();
         }
 
+        public List<CurrentAndFinishedLoans> GetCurrentAndFinishedLoans(int LID)
+        {
+            return loaneeRepository.GetCurrentAndFinishedLoans(LID);
+        }
+
         public Gploanee GetLoaneeByID(int IDD)
         {
             return loaneeRepository.GetLoaneeByID(IDD);

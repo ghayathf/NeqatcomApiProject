@@ -53,6 +53,15 @@ namespace Neqatcom.Infra.Repository
             return loanee.ToList();
         }
 
+        public List<CurrentAndFinishedLoans> GetCurrentAndFinishedLoans(int LID)
+        {
+            var p = new DynamicParameters();
+            p.Add("LID", LID, DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<CurrentAndFinishedLoans> loanee = dbContext.Connection.Query<CurrentAndFinishedLoans>("GPLOANEE_Package.GetCurrentAndFinishedLoans", p
+                , commandType: CommandType.StoredProcedure);
+            return loanee.ToList();
+        }
+
         public Gploanee GetLoaneeByID(int IDD)
         {
             var p = new DynamicParameters();
