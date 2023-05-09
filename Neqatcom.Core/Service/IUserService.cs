@@ -13,5 +13,6 @@ namespace Neqatcom.Core.Service
         void UpdateUser(Gpuser user);
         void DeleteUser(int id);
         string Auth(Gpuser login);
+        void updatePassword(Gpuser gpuser);
     }
 }

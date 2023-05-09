@@ -14,5 +14,6 @@ namespace Neqatcom.Core.Repository
         void UpdateUser(Gpuser user);
         void DeleteUser(int id);
         LoginClaims Auth(Gpuser login);
+        void updatePassword(Gpuser gpuser);
     }
 }

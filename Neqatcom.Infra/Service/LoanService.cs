@@ -56,6 +56,11 @@ namespace Neqatcom.Infra.Service
             return loanRepository.GetLoanByID(IDD);
         }
 
+        public void RequestNewLoan(int loaneeid, int offerid, int totalmonths)
+        {
+            loanRepository.RequestNewLoan(loaneeid, offerid, totalmonths);
+        }
+
         public void UpdateLoan(Gploan loan)
         {
             loanRepository.UpdateLoan(loan);

@@ -1,4 +1,5 @@
 ﻿using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using Neqatcom.Core.Service;
 using System;
@@ -18,6 +19,10 @@ namespace Neqatcom.Infra.Service
         public void CreateOffer(Gpoffer offer)
         {
             offerRepository.CreateOffer(offer);
+        }
+        public List<LoaneeMain> GetLoaneeMain()
+        {
+            return offerRepository.GetLoaneeMain();
         }
 
         public void DeleteOffer(int id)

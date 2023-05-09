@@ -65,7 +65,6 @@ namespace Neqatcom.Infra.Repository
             p.Add("Fname", user.Firstname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("Lname", user.Lastname, dbType: DbType.String, ParameterDirection.Input);
             p.Add("emaail", user.Email, dbType: DbType.String, ParameterDirection.Input);
-            p.Add("pass", EncryptPassword(user.Password), dbType: DbType.String, ParameterDirection.Input);
             p.Add("phone", user.Phonenum, dbType: DbType.String, ParameterDirection.Input);
             p.Add("addr", user.Address, dbType: DbType.String, ParameterDirection.Input);
             p.Add("R", user.Role, dbType: DbType.String, ParameterDirection.Input);
@@ -74,6 +73,13 @@ namespace Neqatcom.Infra.Repository
 
 
             var result = _dbContext.Connection.Execute("GP_User_Package.UpdateUser", p, commandType: CommandType.StoredProcedure);
+        }
+        public void updatePassword(Gpuser gpuser)
+        {
+            var p = new DynamicParameters();
+            p.Add("IDD", gpuser.Userid, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("PASS", EncryptPassword(gpuser.Password), dbType: DbType.String, ParameterDirection.Input);
+            var result = _dbContext.Connection.Execute("GP_User_Package.UPDATEPASSWORD", p, commandType: CommandType.StoredProcedure);
         }
         public string EncryptPassword(string password)
         {

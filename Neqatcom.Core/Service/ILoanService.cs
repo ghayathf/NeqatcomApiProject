@@ -20,5 +20,6 @@ namespace Neqatcom.Core.Service
 
         List<RequestedLoan> GetAllRequestedPostPone(int LSID, int statuss);
         void UpdatePostponeStatus(int LoanID, int status,int loaneeidd);
+        void RequestNewLoan(int loaneeid, int offerid, int totalmonths);
     }
 }
