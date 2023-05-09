@@ -31,7 +31,17 @@ namespace Neqatcom.Infra.Repository
 
             dbContext.Connection.Execute("GPLOANEE_Package.CreateLoanee", p, commandType: CommandType.StoredProcedure);
         }
+        public void giveComplaintForLender(Gpcomplaint gpcomplaint)
+        {
+            var p = new DynamicParameters();
+            p.Add("note", gpcomplaint.Compliantnotes, DbType.String, direction: ParameterDirection.Input);
+            p.Add("datof", gpcomplaint.Dateofcomplaints, DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("LendId", gpcomplaint.Leid, DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("LoaneID", gpcomplaint.Loid, DbType.Decimal, direction: ParameterDirection.Input);
 
+            dbContext.Connection.Execute("GPLOANEE_Package.GiveComplaintToLender", p, commandType: CommandType.StoredProcedure);
+
+        }
         public void DeleteLoanee(int IDD)
         {
             var p = new DynamicParameters();

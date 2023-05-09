@@ -15,6 +15,7 @@ namespace Neqatcom.Core.Repository
         List<Gploanee> GetAllLoanees();
         List<LoaneeUser> GetAllLoaneeUser();
         List<CurrentAndFinishedLoans> GetCurrentAndFinishedLoans(int LID);
+        void giveComplaintForLender(Gpcomplaint gpcomplaint);
 
     }
 }

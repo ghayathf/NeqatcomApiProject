@@ -43,8 +43,5 @@ namespace Neqatcom.Core.DTO
         public string Userimage { get; set; }
         public string Categoryname { get; set; }
         public string Categoryimage { get; set; }
-        public decimal Purchaseid { get; set; }
-        public DateTime? Paymentdate { get; set; }
-        public decimal? Paymenttype { get; set; }
     }
 }
