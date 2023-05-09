@@ -55,5 +55,11 @@ namespace Neqatcom.API.Controllers
         {
             loaneeService.UpdateLoanee(loanee);
         }
+        [HttpGet]
+        [Route("GetCurrentAndFinishedLoans/{LID}")]
+        public List<CurrentAndFinishedLoans> GetCurrentAndFinishedLoans(int LID)
+        {
+            return loaneeService.GetCurrentAndFinishedLoans(LID);
+        }
     }
 }
