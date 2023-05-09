@@ -26,7 +26,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("DofBirth", loanee.Dateofbirth, DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("LSalary", loanee.Salary, DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("NumOffam", loanee.Numoffamily, DbType.Decimal, direction: ParameterDirection.Input);
-            p.Add("Score", loanee.Creditscore, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("Score", 10, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("userIDD", loanee.Loaneeuserid, DbType.Int32, direction: ParameterDirection.Input);
 
             dbContext.Connection.Execute("GPLOANEE_Package.CreateLoanee", p, commandType: CommandType.StoredProcedure);
