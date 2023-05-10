@@ -10,6 +10,7 @@ namespace Neqatcom.Core.Data
         public Gploanee()
         {
             Gpcomplaints = new HashSet<Gpcomplaint>();
+            Gpfollowers = new HashSet<Gpfollower>();
             Gploans = new HashSet<Gploan>();
             Gpmeetings = new HashSet<Gpmeeting>();
         }
@@ -26,6 +27,7 @@ namespace Neqatcom.Core.Data
 
         public virtual Gpuser Loaneeuser { get; set; }
         public virtual ICollection<Gpcomplaint> Gpcomplaints { get; set; }
+        public virtual ICollection<Gpfollower> Gpfollowers { get; set; }
         public virtual ICollection<Gploan> Gploans { get; set; }
         public virtual ICollection<Gpmeeting> Gpmeetings { get; set; }
     }

@@ -10,6 +10,7 @@ namespace Neqatcom.Core.Data
         public Gplenderstore()
         {
             Gpcomplaints = new HashSet<Gpcomplaint>();
+            Gpfollowers = new HashSet<Gpfollower>();
             Gpmeetings = new HashSet<Gpmeeting>();
             Gpoffers = new HashSet<Gpoffer>();
         }
@@ -23,9 +24,11 @@ namespace Neqatcom.Core.Data
         public string Siteurl { get; set; }
         public decimal? Warncounter { get; set; }
         public DateTime? Warndate { get; set; }
+        public string Bankaccount { get; set; }
 
         public virtual Gpuser Lenderuser { get; set; }
         public virtual ICollection<Gpcomplaint> Gpcomplaints { get; set; }
+        public virtual ICollection<Gpfollower> Gpfollowers { get; set; }
         public virtual ICollection<Gpmeeting> Gpmeetings { get; set; }
         public virtual ICollection<Gpoffer> Gpoffers { get; set; }
     }

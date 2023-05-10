@@ -12,6 +12,7 @@ namespace Neqatcom.Core.Data
             Gplenderstores = new HashSet<Gplenderstore>();
             Gploanees = new HashSet<Gploanee>();
             Gptestimonials = new HashSet<Gptestimonial>();
+            Notifications = new HashSet<Notification>();
         }
 
         public decimal Userid { get; set; }
@@ -28,5 +29,6 @@ namespace Neqatcom.Core.Data
         public virtual ICollection<Gplenderstore> Gplenderstores { get; set; }
         public virtual ICollection<Gploanee> Gploanees { get; set; }
         public virtual ICollection<Gptestimonial> Gptestimonials { get; set; }
+        public virtual ICollection<Notification> Notifications { get; set; }
     }
 }
