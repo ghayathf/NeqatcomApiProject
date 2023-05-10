@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Neqatcom.Core.Common;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -38,9 +39,9 @@ namespace Neqatcom.Infra.Repository
         }
         
 
-        public List<Gptestimonial> GetAllTestimonial()
+        public List<TestimonalUser> GetAllTestimonial()
         {
-            IEnumerable<Gptestimonial> result = _dbContext.Connection.Query<Gptestimonial>("GP_Testimonial_Package.GetAllTestimonials", commandType: CommandType.StoredProcedure);
+            IEnumerable<TestimonalUser> result = _dbContext.Connection.Query<TestimonalUser>("GP_Testimonial_Package.GetAllTestimonials", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
