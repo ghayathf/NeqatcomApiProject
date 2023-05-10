@@ -28,6 +28,10 @@ namespace Neqatcom.Infra.Service
         {
             return _lenderStoreRepository.GetLenderInfo(id);
         }
+        public void giveComplaintForLoanee(Gpcomplaint gpcomplaint)
+        {
+            _lenderStoreRepository.giveComplaintForLoanee(gpcomplaint);
+        }
         public List<LoanOffer> GetAllLoanOffer(int lenderid, int loaneeid)
         {
             return _lenderStoreRepository.GetAllLoanOffer(lenderid, loaneeid);

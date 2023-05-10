@@ -53,6 +53,12 @@ namespace Neqatcom.API.Controllers
             return _lenderStoreService.GetAllLoaneesForLendercs(id);
         }
         [HttpPost]
+        [Route("giveComplaintForLoanee")]
+        public void giveComplaintForLoanee(Gpcomplaint gpcomplaint)
+        {
+            _lenderStoreService.giveComplaintForLoanee(gpcomplaint);
+        }
+        [HttpPost]
         [Route("createLenderStore")]
        public void createLenderStore(Gplenderstore gplenderstore)
         {
