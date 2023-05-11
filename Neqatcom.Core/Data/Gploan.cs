@@ -29,6 +29,7 @@ namespace Neqatcom.Core.Data
         public DateTime? Postponedate { get; set; }
         public decimal? Beforepaystatus { get; set; }
         public decimal? Inpaydatestatus { get; set; }
+        public decimal? Latepaystatus { get; set; }
 
         public virtual Gploanee Loanee { get; set; }
         public virtual Gpoffer Offer { get; set; }
