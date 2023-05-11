@@ -55,5 +55,11 @@ namespace Neqatcom.API.Controllers
         {
             loaneeService.UpdateLoanee(loanee);
         }
+        [HttpGet]
+        [Route("GetConfirmLoans/{loaneeidd}")]
+        public List<ConfirmLoans> GetConfirmLoans(int loaneeidd)
+        {
+            return loaneeService.GetLoansToConfirm(loaneeidd);
+        }
     }
 }

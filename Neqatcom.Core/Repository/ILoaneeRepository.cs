@@ -14,6 +14,7 @@ namespace Neqatcom.Core.Repository
         Gploanee GetLoaneeByID(int IDD);
         List<Gploanee> GetAllLoanees();
         List<LoaneeUser> GetAllLoaneeUser();
+        List<ConfirmLoans> GetLoansToConfirm(int loaneeidd);
 
     }
 }
