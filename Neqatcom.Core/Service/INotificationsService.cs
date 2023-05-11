@@ -7,7 +7,8 @@ namespace Neqatcom.Core.Service
 {
     public interface INotificationsService
     {
-        Notification GetNotificationById(int id);
+        List<Notification> GetNotificationById(int id);
+    
         void CreateNewNotification(Notification notification);
     }
 }

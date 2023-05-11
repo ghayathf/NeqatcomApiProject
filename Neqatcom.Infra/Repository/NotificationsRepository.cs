@@ -22,19 +22,18 @@ namespace Neqatcom.Infra.Repository
         public void CreateNewNotification(Notification notification)
         {
             var p = new DynamicParameters();
-            p.Add("NOTIFICATIONMESSAGE", notification.Notificationmessage, DbType.String, direction: ParameterDirection.Input);
-            p.Add("userID", notification.Userid, DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("dateofnotifications", notification.Notificationsdates, DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("Message", notification.Notificationsmessage, DbType.String, direction: ParameterDirection.Input);
+            p.Add("useridd", notification.Userid, DbType.Int32, direction: ParameterDirection.Input);
 
             var result = dbContext.Connection.Execute("GP_Notifications_PACKAGE.CreateNotifications", p, commandType: CommandType.StoredProcedure);
         }
 
-        public Notification GetNotificationById(int id)
+        public List< Notification> GetNotificationById(int id)
         {
             var p = new DynamicParameters();
             p.Add("id_", id, DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Notification> notifications = dbContext.Connection.Query<Notification>("GP_Notifications_PACKAGE.GetNotificationsById", p, commandType: CommandType.StoredProcedure);
-            return notifications.FirstOrDefault();
+            return notifications.ToList();
         }
     }
 }

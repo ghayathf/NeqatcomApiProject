@@ -29,7 +29,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("COMPANTSIZE_", gplenderstore.Companysize, DbType.String, direction: ParameterDirection.Input);
             p.Add("SITEURL_", gplenderstore.Siteurl, DbType.String, direction: ParameterDirection.Input);
 
-
+            p.Add("myaccount", gplenderstore.Bankaccount, DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("GP_LENDERSTORE_PACKAGE.CreateLenderStore", p, commandType: CommandType.StoredProcedure);
         }
@@ -103,7 +103,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("SHADOWSTATUS_", gplenderstore.Shadowstatus, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("COMPANTSIZE_", gplenderstore.Companysize, DbType.String, direction: ParameterDirection.Input);
             p.Add("SITEURL_", gplenderstore.Siteurl, DbType.String, direction: ParameterDirection.Input);
-
+            p.Add("myaccount", gplenderstore.Bankaccount, DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("GP_LENDERSTORE_PACKAGE.updateLenderStore", p, commandType: CommandType.StoredProcedure);
         }
