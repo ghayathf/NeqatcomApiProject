@@ -23,7 +23,7 @@ namespace Neqatcom.API.Controllers
         [Route("giveComplaintForLender")]
         public void giveComplaintForLender(Gpcomplaint gpcomplaint)
         {
-            loaneeService.giveComplaintForLender(gpcomplaint);
+            loaneeService.giveComplaintForLender(gpcomplaint);  
         }
         [HttpPost]
         [Route("CreateLoanee")]
@@ -60,7 +60,7 @@ namespace Neqatcom.API.Controllers
         public void UpdateLoanee(Gploanee loanee)
         {
             loaneeService.UpdateLoanee(loanee);
-        }
+        } 
         [HttpGet]
         [Route("GetCurrentAndFinishedLoans/{LID}")]
         public List<CurrentAndFinishedLoans> GetCurrentAndFinishedLoans(int LID)

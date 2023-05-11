@@ -20,11 +20,13 @@ namespace Neqatcom.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetNotificationById/{id}")]
         public Notification GetNotificationById(int id)
         {
            return _notificationsService.GetNotificationById(id);
         }
         [HttpPost]
+        [Route("CreateNewNotification")]
        public void CreateNewNotification(Notification notification)
         {
             _notificationsService.CreateNewNotification(notification);

@@ -86,6 +86,8 @@ namespace Neqatcom.API
             services.AddControllers();
             services.AddScoped<ILoaneeComplaintsRepository, LoaneeComplaintsRepository>();
             services.AddScoped<ILoaneeComplaintsService, LoaneeComplaintsService>();
+            services.AddScoped<INotificationsService, NotificationsService>();
+            services.AddScoped<INotificationsRepository, NotificationsRepository>();
 
         }
 
