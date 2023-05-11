@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Neqatcom.API.Controllers;
 using Neqatcom.Core.Common;
 using Neqatcom.Core.Repository;
 using Neqatcom.Core.Service;
@@ -17,6 +18,7 @@ using Neqatcom.Infra.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -88,6 +90,8 @@ namespace Neqatcom.API
             services.AddScoped<ILoaneeComplaintsService, LoaneeComplaintsService>();
             services.AddScoped<INotificationsService, NotificationsService>();
             services.AddScoped<INotificationsRepository, NotificationsRepository>();
+            services.AddHttpClient<ZoomApiController>();
+            services.AddScoped<HttpClient>();
 
         }
 
