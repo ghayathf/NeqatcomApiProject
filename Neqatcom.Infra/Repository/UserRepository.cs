@@ -35,7 +35,27 @@ namespace Neqatcom.Infra.Repository
 
             var result = _dbContext.Connection.Execute("GP_User_Package.CreateUser", p, commandType: CommandType.StoredProcedure);
         }
-
+        public List<Followers> GetAllGpfollower(int lendId) 
+        {
+            var p = new DynamicParameters();
+            p.Add("lendId", lendId, dbType: DbType.Int32, ParameterDirection.Input);
+            IEnumerable<Followers> result = _dbContext.Connection.Query<Followers>("GP_User_Package.getAllFollowers",p ,commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+        public void addfollower(int lendId, int loaneId) 
+        {
+            var p = new DynamicParameters();
+            p.Add("lendId", lendId, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("loaneId", lendId, dbType: DbType.Int32, ParameterDirection.Input);
+            _dbContext.Connection.Execute("GP_User_Package.addFollower", p, commandType: CommandType.StoredProcedure);
+        }
+        public void DeleteFollower(int lendId, int loaneId) 
+        {
+            var p = new DynamicParameters();
+            p.Add("lendId", lendId, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("loaneId", lendId, dbType: DbType.Int32, ParameterDirection.Input);
+            _dbContext.Connection.Execute("GP_User_Package.DELETEFOLLOWER", p, commandType: CommandType.StoredProcedure);
+        }
         public void DeleteUser(int id)
         {
             var p = new DynamicParameters();
