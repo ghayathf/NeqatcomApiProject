@@ -14,6 +14,8 @@ namespace Neqatcom.Core.Service
         Gploanee GetLoaneeByID(int IDD);
         List<Gploanee> GetAllLoanees();
         List<LoaneeUser> GetAllLoaneeUser();
+        List<CurrentAndFinishedLoans> GetCurrentAndFinishedLoans(int LID);
+        void giveComplaintForLender(Gpcomplaint gpcomplaint);
         List<ConfirmLoans> GetLoansToConfirm(int loaneeidd);
 
     }

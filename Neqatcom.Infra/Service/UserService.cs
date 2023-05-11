@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using Neqatcom.Core.Service;
 using System;
@@ -17,6 +18,19 @@ namespace Neqatcom.Infra.Service
         public UserService(IUserRepository userRepository)
         {
             this.userRepository = userRepository;
+        }
+
+        public List<Followers> GetAllGpfollower(int lendId) 
+        {
+            return userRepository.GetAllGpfollower(lendId);
+        }
+        public void addfollower(int lendId, int loaneId) 
+        {
+            userRepository.addfollower(lendId, loaneId);
+        }
+        public void DeleteFollower(int lendId, int loaneId) 
+        {
+            userRepository.DeleteFollower(lendId, loaneId);
         }
         public string Auth(Gpuser login)
         {
@@ -63,7 +77,10 @@ namespace Neqatcom.Infra.Service
         {
             userRepository.CreateUser(user);
         }
-
+        public void updatePassword(Gpuser gpuser)
+        {
+            userRepository.updatePassword(gpuser);
+        }
         public void DeleteUser(int id)
         {
             userRepository.DeleteUser(id);

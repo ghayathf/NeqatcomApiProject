@@ -16,5 +16,7 @@ namespace Neqatcom.Core.Service
         void UpdateLenderStore(Gplenderstore gplenderstore);
         void DeleteLenderStore(int id);
         List<LoanOffer> GetAllLoanOffer(int lenderid, int loaneeid);
+        LenderInfo GetLenderInfo(int id);
+        void giveComplaintForLoanee(Gpcomplaint gpcomplaint);
     }
 }

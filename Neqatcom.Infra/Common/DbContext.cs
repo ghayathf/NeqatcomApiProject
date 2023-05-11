@@ -22,7 +22,7 @@ namespace Neqatcom.Infra.Common
         {
             get
             { 
-                if (_Connection == null)
+                if (_Connection == null)  
                 {
                     _Connection = new OracleConnection(_configuration["ConnectionStrings:DefaultConnection"]);
                     _Connection.Open();

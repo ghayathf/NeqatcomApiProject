@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Service;
 using System.Collections.Generic;
 
@@ -29,6 +30,12 @@ namespace Neqatcom.API.Controllers
             return _offerService.GetAllOferById(id);
         }
 
+        [HttpGet]
+        [Route("GetLoaneeMain")]
+        public List<LoaneeMain> GetLoaneeMain()
+        {
+            return _offerService.GetLoaneeMain();
+        }
 
 
 

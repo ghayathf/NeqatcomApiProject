@@ -26,12 +26,22 @@ namespace Neqatcom.Infra.Repository
             p.Add("DofBirth", loanee.Dateofbirth, DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("LSalary", loanee.Salary, DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("NumOffam", loanee.Numoffamily, DbType.Decimal, direction: ParameterDirection.Input);
-            p.Add("Score", loanee.Creditscore, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("Score", 10, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("userIDD", loanee.Loaneeuserid, DbType.Int32, direction: ParameterDirection.Input);
 
             dbContext.Connection.Execute("GPLOANEE_Package.CreateLoanee", p, commandType: CommandType.StoredProcedure);
         }
+        public void giveComplaintForLender(Gpcomplaint gpcomplaint)
+        {
+            var p = new DynamicParameters();
+            p.Add("note", gpcomplaint.Compliantnotes, DbType.String, direction: ParameterDirection.Input);
+            p.Add("datof", gpcomplaint.Dateofcomplaints, DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("LendId", gpcomplaint.Leid, DbType.Decimal, direction: ParameterDirection.Input);
+            p.Add("LoaneID", gpcomplaint.Loid, DbType.Decimal, direction: ParameterDirection.Input);
 
+            dbContext.Connection.Execute("GPLOANEE_Package.GiveComplaintToLender", p, commandType: CommandType.StoredProcedure);
+
+        }
         public void DeleteLoanee(int IDD)
         {
             var p = new DynamicParameters();
@@ -50,6 +60,15 @@ namespace Neqatcom.Infra.Repository
         {
             IEnumerable<LoaneeUser> loanee = dbContext.Connection.Query<LoaneeUser>("GPLOANEE_Package.LoaneeUser"
                  , commandType: CommandType.StoredProcedure);
+            return loanee.ToList();
+        }
+
+        public List<CurrentAndFinishedLoans> GetCurrentAndFinishedLoans(int LID)
+        {
+            var p = new DynamicParameters();
+            p.Add("LID", LID, DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<CurrentAndFinishedLoans> loanee = dbContext.Connection.Query<CurrentAndFinishedLoans>("GPLOANEE_Package.GetCurrentAndFinishedLoans", p
+                , commandType: CommandType.StoredProcedure);
             return loanee.ToList();
         }
 

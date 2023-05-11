@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Service;
+using Neqatcom.Infra.Repository;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,10 +35,34 @@ namespace Neqatcom.API.Controllers
             }
         }
         [HttpGet]
+        [Route("GetAllFollower/{lendId}")]
+        public List<Followers> GetAllGpfollower(int lendId)
+        {
+            return userService.GetAllGpfollower(lendId);
+        }
+        [HttpPost]
+        [Route("addfollower/{lendId}/{loaneId}")]
+        public void addfollower(int lendId, int loaneId)
+        {
+            userService.addfollower(lendId, loaneId);
+        }
+        [HttpDelete]
+        [Route("DeleteFollower/{lendId}/{loaneId}")]
+        public void DeleteFollower(int lendId, int loaneId)
+        {
+            userService.DeleteFollower(lendId, loaneId);
+        }
+        [HttpGet]
         [Route("GetAllUsers")]
         public List<Gpuser> GetAllUsers()
         {
             return userService.GetAllUsers();
+        }
+        [HttpPut]
+        [Route("UpdatePassword")]
+        public void updatePassword(Gpuser gpuser)
+        {
+            userService.updatePassword(gpuser);
         }
         [HttpGet]
         [Route("GetUserById/{id}")]

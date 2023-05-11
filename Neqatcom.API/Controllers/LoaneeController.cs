@@ -20,6 +20,12 @@ namespace Neqatcom.API.Controllers
             this.loaneeService = loaneeService;
         }
         [HttpPost]
+        [Route("giveComplaintForLender")]
+        public void giveComplaintForLender(Gpcomplaint gpcomplaint)
+        {
+            loaneeService.giveComplaintForLender(gpcomplaint);
+        }
+        [HttpPost]
         [Route("CreateLoanee")]
         public void CreateLoanee(Gploanee loanee)
         {
@@ -54,6 +60,12 @@ namespace Neqatcom.API.Controllers
         public void UpdateLoanee(Gploanee loanee)
         {
             loaneeService.UpdateLoanee(loanee);
+        }
+        [HttpGet]
+        [Route("GetCurrentAndFinishedLoans/{LID}")]
+        public List<CurrentAndFinishedLoans> GetCurrentAndFinishedLoans(int LID)
+        {
+            return loaneeService.GetCurrentAndFinishedLoans(LID);
         }
         [HttpGet]
         [Route("GetConfirmLoans/{loaneeidd}")]

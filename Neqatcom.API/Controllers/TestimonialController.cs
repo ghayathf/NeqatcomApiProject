@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Service;
 using System.Collections.Generic;
 
@@ -44,7 +45,7 @@ namespace Neqatcom.API.Controllers
 
         [HttpGet]
         [Route("GetAllTestimonials")]
-        public List<Gptestimonial> GetAllTestimonial()
+        public List<TestimonalUser> GetAllTestimonial()
         {
             return _testimonialService.GetAllTestimonial();
         }

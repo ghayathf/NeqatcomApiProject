@@ -1,4 +1,5 @@
 ﻿using Neqatcom.Core.Data;
+using Neqatcom.Core.DTO;
 using Neqatcom.Core.Repository;
 using Neqatcom.Core.Service;
 using System;
@@ -25,7 +26,7 @@ namespace Neqatcom.Infra.Service
             testimonialRepository.DeleteTestimonial(id);
         }
 
-        public List<Gptestimonial> GetAllTestimonial()
+        public List<TestimonalUser> GetAllTestimonial()
         {
             return testimonialRepository.GetAllTestimonial();
         }

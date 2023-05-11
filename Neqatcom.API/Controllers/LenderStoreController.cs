@@ -17,6 +17,12 @@ namespace Neqatcom.API.Controllers
             _lenderStoreService = lenderStoreService;
         }
         [HttpGet]
+        [Route("GetLenderInfo/{id}")]
+        public LenderInfo GetLenderInfo(int id)
+        {
+            return _lenderStoreService.GetLenderInfo(id);  
+        }
+        [HttpGet]
         [Route("GetAllLenderStore")]
        public List<Gplenderstore> GetAllLenderStore()
         {
@@ -45,6 +51,12 @@ namespace Neqatcom.API.Controllers
         public List<LoaneesForLendercs> GetAllLoaneesForLendercs(int id)
         {
             return _lenderStoreService.GetAllLoaneesForLendercs(id);
+        }
+        [HttpPost]
+        [Route("giveComplaintForLoanee")]
+        public void giveComplaintForLoanee(Gpcomplaint gpcomplaint)
+        {
+            _lenderStoreService.giveComplaintForLoanee(gpcomplaint);
         }
         [HttpPost]
         [Route("createLenderStore")]

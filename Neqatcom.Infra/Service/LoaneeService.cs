@@ -20,7 +20,10 @@ namespace Neqatcom.Infra.Service
         {
             loaneeRepository.CreateLoanee(loanee);
         }
-
+        public void giveComplaintForLender(Gpcomplaint gpcomplaint)
+        {
+            loaneeRepository.giveComplaintForLender(gpcomplaint);
+        }
         public void DeleteLoanee(int IDD)
         {
             loaneeRepository.DeleteLoanee(IDD);
@@ -34,6 +37,11 @@ namespace Neqatcom.Infra.Service
         public List<LoaneeUser> GetAllLoaneeUser()
         {
             return loaneeRepository.GetAllLoaneeUser();
+        }
+
+        public List<CurrentAndFinishedLoans> GetCurrentAndFinishedLoans(int LID)
+        {
+            return loaneeRepository.GetCurrentAndFinishedLoans(LID);
         }
 
         public Gploanee GetLoaneeByID(int IDD)
