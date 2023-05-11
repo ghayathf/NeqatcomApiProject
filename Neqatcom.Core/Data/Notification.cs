@@ -7,10 +7,10 @@ namespace Neqatcom.Core.Data
 {
     public partial class Notification
     {
-        public decimal Notificationid { get; set; }
+        public decimal Notificationsid { get; set; }
         public decimal? Userid { get; set; }
-        public string Notificationmessage { get; set; }
-        public DateTime? Notificationsdates { get; set; }
+        public string Notificationsmessage { get; set; }
+        public DateTime? Notificationsdate { get; set; }
 
         public virtual Gpuser User { get; set; }
     }
