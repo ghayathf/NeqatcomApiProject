@@ -20,7 +20,7 @@ namespace Neqatcom.API.Controllers
         [Route("GetLenderInfo/{id}")]
         public LenderInfo GetLenderInfo(int id)
         {
-            return _lenderStoreService.GetLenderInfo(id);
+            return _lenderStoreService.GetLenderInfo(id);  
         }
         [HttpGet]
         [Route("GetAllLenderStore")]
