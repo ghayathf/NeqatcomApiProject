@@ -25,5 +25,21 @@ namespace Neqatcom.Core.DTO
         public decimal? Loaneeuserid { get; set; }
         public decimal? Warncounter { get; set; }
         public decimal? Postponecounter { get; set; }
+        public decimal Loanid { get; set; }
+        public decimal? Totalmonths { get; set; }
+        public decimal? Totalprice { get; set; }
+        public decimal? Estimatedprice { get; set; }
+        public decimal? Monthlyamount { get; set; }
+        public decimal? Predayscounter { get; set; }
+        public decimal? Latedayscounter { get; set; }
+        public DateTime? Startdate { get; set; }
+        public DateTime? Enddate { get; set; }
+        public decimal? Offerid { get; set; }
+        public decimal? Loanstatus { get; set; }
+        public decimal? Postponestatus { get; set; }
+        public DateTime? Postponedate { get; set; }
+        public decimal? Beforepaystatus { get; set; }
+        public decimal? Inpaydatestatus { get; set; }
+
     }
 }
