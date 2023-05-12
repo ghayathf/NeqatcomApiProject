@@ -46,14 +46,14 @@ namespace Neqatcom.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("lendId", lendId, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("loaneId", lendId, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("loaneId", loaneId, dbType: DbType.Int32, ParameterDirection.Input);
             _dbContext.Connection.Execute("GP_User_Package.addFollower", p, commandType: CommandType.StoredProcedure);
         }
         public void DeleteFollower(int lendId, int loaneId) 
         {
             var p = new DynamicParameters();
             p.Add("lendId", lendId, dbType: DbType.Int32, ParameterDirection.Input);
-            p.Add("loaneId", lendId, dbType: DbType.Int32, ParameterDirection.Input);
+            p.Add("loaneId", loaneId, dbType: DbType.Int32, ParameterDirection.Input);
             _dbContext.Connection.Execute("GP_User_Package.DELETEFOLLOWER", p, commandType: CommandType.StoredProcedure);
         }
         public void DeleteUser(int id)
