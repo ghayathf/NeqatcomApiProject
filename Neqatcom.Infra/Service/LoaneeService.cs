@@ -49,6 +49,11 @@ namespace Neqatcom.Infra.Service
             return loaneeRepository.GetLoaneeByID(IDD);
         }
 
+        public List<ConfirmLoans> GetLoansToConfirm(int loaneeidd)
+        {
+            return loaneeRepository.GetLoansToConfirm(loaneeidd);
+        }
+
         public void UpdateLoanee(Gploanee loanee)
         {
             loaneeRepository.UpdateLoanee(loanee);

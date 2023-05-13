@@ -81,6 +81,14 @@ namespace Neqatcom.Infra.Repository
             return loanee.FirstOrDefault();
         }
 
+        public List<ConfirmLoans> GetLoansToConfirm(int loaneeidd)
+        {
+            var p = new DynamicParameters();
+            p.Add("Idd", loaneeidd, DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<ConfirmLoans> loanee = dbContext.Connection.Query<ConfirmLoans>("GPLOANEE_Package.ConfirmLoans" ,p, commandType: CommandType.StoredProcedure);
+            return loanee.ToList();
+        }
+
         public void UpdateLoanee(Gploanee loanee)
         {
             var p = new DynamicParameters();

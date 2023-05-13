@@ -76,5 +76,42 @@ namespace Neqatcom.API.Controllers
         {
             return _homeService.getTableLength();
         }
+        [HttpGet]
+        [Route("GetLoaneestoRemind")]
+        public List<LoaneeReminder> GetLoaneestoRemind()
+        {
+            return _homeService.GetLoaneestoRemind();
+        }
+        [HttpPut]
+        [Route("UpdateBeforeReminder")]
+       public  void UpdateBeforeReminder()
+        {
+            _homeService.UpdateBeforeReminder();
+        }
+        [HttpGet]
+        [Route("GetLoaneesInPayDaytoRemind")]
+       public  List<LoaneeReminder> GetLoaneesInPayDaytoRemind()
+        {
+            return _homeService.GetLoaneesInPayDaytoRemind();
+        }
+        [HttpPut]
+        [Route("UpdateInPayDateReminder")]
+       public void UpdateInPayDateReminder()
+        {
+            _homeService.UpdateInPayDateReminder();
+        }
+        [HttpGet]
+        [Route("GetLoaneeslatePayDaytoRemind")]
+       public List<LoaneeReminder> GetLoaneeslatePayDaytoRemind()
+        {
+            return _homeService.GetLoaneeslatePayDaytoRemind();
+        }
+        [HttpPut]
+        [Route("UpdateLatePayDateReminder")]
+       public void UpdateLatePayDateReminder()
+        {
+            _homeService.UpdateLatePayDateReminder();
+        }
+
     }
 }
