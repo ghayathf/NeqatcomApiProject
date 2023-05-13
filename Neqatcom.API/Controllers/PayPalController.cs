@@ -1,88 +1,91 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PayPal.Api;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net;
-using System.Threading.Tasks;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Text.Json;
+using System.Net.Http;
+using System.Text;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace Neqatcom.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PayPalController : ControllerBase
+    public class PaypalController : ControllerBase
     {
-
-        private readonly string _clientId;
-        private readonly string _clientSecret;
-
-        public PayPalController()
-        {
-            _clientId = "ATJUcWORBuGbdyff53gJrvvrokG_EFKOqgKqkrUBcjf1X6XNzEkWgEA3j17bHCFtCiX1bUIQXY98PzOz";
-            _clientSecret = "EH3F4JdIb6OUIr7E7N5Hr8GEkI_nZ1IidFOSEz-FAORrAGSMIL2ssXEXvcZcAHfAXXYZyAlnQGBuqkow";
-        }
+        private const string ApiUrl = "https://api.sandbox.paypal.com";
+        private const string ClientId = "YOUR_CLIENT_ID";
+        private const string Secret = "YOUR_SECRET";
+        private const string AccessTokenEndpoint = "/v1/oauth2/token";
+        private const string PaymentCreateEndpoint = "/v1/payments/payment";
 
         [HttpPost]
-        [Route("MakePayment")]
-        public async Task<IActionResult> MakePayment([FromBody] PaymentRequest paymentRequest)
+        public async Task<String> CreatePayment(decimal amount)
         {
-            var apiContext = new APIContext(new OAuthTokenCredential(_clientId, _clientSecret).GetAccessToken());
+            var accessToken = await GetAccessToken(ClientId, Secret);
 
-            var payment = new Payment
+            var payment = new Dictionary<string, object>
             {
-                intent = "sale",
-                payer = new Payer
-                {
-                    payment_method = "paypal",
-                    payer_info = new PayerInfo
+                { "intent", "sale" },
+                { "payer", new Dictionary<string, object>
                     {
-                        email = paymentRequest.Email,
-                        first_name = paymentRequest.Name
+                        { "payment_method", "paypal" }
                     }
                 },
-                transactions = new List<Transaction>
-        {
-            new Transaction
-            {
-                amount = new Amount
-                {
-                    currency = "USD",
-                    total = paymentRequest.Amount.ToString(),
-                    details = new Details
+                { "transactions", new object[]
                     {
-                        subtotal = paymentRequest.Amount.ToString(),
-                        tax = "0.00",
-                        shipping = "0.00",
-                        handling_fee = "0.00",
-                        shipping_discount = "0.00",
+                        new Dictionary<string, object>
+                        {
+                            { "amount", new Dictionary<string, object>
+                                {
+                                    { "total", amount.ToString("0.00") },
+                                    { "currency", "USD" }
+                                }
+                            },
+                            { "description", "Payment description" }
+                        }
                     }
                 },
-                description = "Payment for service",
-                invoice_number = Guid.NewGuid().ToString()
-            }
-        },
-                redirect_urls = new RedirectUrls
-                {
-                    return_url = "http://localhost:4200/",
-                    cancel_url = "http://localhost:4200/",
+                { "redirect_urls", new Dictionary<string, object>
+                    {
+                        { "return_url", "https://yourwebsite.com/success" },
+                        { "cancel_url", "https://yourwebsite.com/cancel" }
+                    }
                 }
             };
 
-            payment.Create(apiContext);
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var response = await client.PostAsync($"{ApiUrl}{PaymentCreateEndpoint}", new StringContent(JsonConvert.SerializeObject(payment), Encoding.UTF8, "application/json"));
+            var responseContent = await response.Content.ReadAsStringAsync();
+            var paymentResponse = JsonConvert.DeserializeObject<dynamic>(responseContent);
 
-            var redirectUrl = payment.links != null
-                ? payment.links.FirstOrDefault(x => x.rel.Equals("approval_url", StringComparison.OrdinalIgnoreCase))?.href
-                : null;
-
-            return Ok(new { RedirectUrl = redirectUrl });
+            if (response.IsSuccessStatusCode)
+            {
+                var approvalUrl = paymentResponse.links[1].href;
+                // Redirect to approvalUrl to complete payment
+                return Redirect(approvalUrl);
+            }
+            else
+            {
+                var error = paymentResponse.message;
+                // Handle payment creation error
+                return BadRequest(error);
+            }
         }
-    }
-    public class PaymentRequest
-    {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public decimal Amount { get; set; }
+        [HttpGet]
+        [Route("GetAccessToken/{clientId}/{secret}")]
+        private async Task<string> GetAccessToken(string clientId, string secret)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes($"{clientId}:{secret}")));
+            var response = await client.PostAsync($"{ApiUrl}{AccessTokenEndpoint}?grant_type=client_credentials", null);
+            var responseContent = await response.Content.ReadAsStringAsync();
+            var tokenResponse = JsonConvert.DeserializeObject<dynamic>(responseContent);
+            return tokenResponse.access_token;
+        }
     }
 }
