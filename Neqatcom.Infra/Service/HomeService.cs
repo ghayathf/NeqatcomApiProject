@@ -37,14 +37,45 @@ namespace Neqatcom.Infra.Service
             return _homeRepository.GetHomeInformationById(id);
         }
 
+        public List<LoaneeReminder> GetLoaneesInPayDaytoRemind()
+        {
+            return _homeRepository.GetLoaneesInPayDaytoRemind();
+
+        }
+
+        public List<LoaneeReminder> GetLoaneeslatePayDaytoRemind()
+        {
+            return _homeRepository.GetLoaneeslatePayDaytoRemind();
+        }
+
+        public List<LoaneeReminder> GetLoaneestoRemind()
+        {
+            return _homeRepository.GetLoaneestoRemind();
+        }
+
         public List<Lengths> getTableLength()
         {
             return _homeRepository.getTableLength();
         }
 
+        public void UpdateBeforeReminder()
+        {
+            _homeRepository.UpdateBeforeReminder();
+        }
+
         public void UpdateHomeInformation(Gphomepage finalHomepage)
         {
             _homeRepository.UpdateHomeInformation(finalHomepage);
+        }
+
+        public void UpdateInPayDateReminder()
+        {
+            _homeRepository.UpdateInPayDateReminder();
+        }
+
+        public void UpdateLatePayDateReminder()
+        {
+            _homeRepository.UpdateLatePayDateReminder();
         }
     }
 }

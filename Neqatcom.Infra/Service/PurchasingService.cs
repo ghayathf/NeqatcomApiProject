@@ -43,6 +43,10 @@ namespace Neqatcom.Infra.Service
         {
             purchasingRepository.PayCash(id);
         }
+        public void PayOnline(int id)
+        {
+            purchasingRepository.PayOnline(id);
+        }
         public List<Gppurchasing> GettAllPayments(int id)
         {
             return purchasingRepository.GettAllPayments(id);

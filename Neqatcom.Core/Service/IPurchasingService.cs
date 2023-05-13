@@ -15,6 +15,7 @@ namespace Neqatcom.Core.Service
         List<Gppurchasing> GettAllPayments(int id);
         void ForGiveMonthly(int id);
         void PayCash(int id);
+        void PayOnline(int id);
 
     }
 }
