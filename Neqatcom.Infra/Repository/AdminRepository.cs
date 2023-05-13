@@ -25,7 +25,12 @@ namespace Neqatcom.Infra.Repository
               , commandType: CommandType.StoredProcedure);
             return loan.ToList();
         }
-
+        public void deleteComplaint(int cid)
+        {
+            var p = new DynamicParameters();
+            p.Add("CID", cid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            dbContext.Connection.Execute("GPADMIN_Package.DeleteComplaint", p, commandType: CommandType.StoredProcedure);
+        }
         public List<Gpcommercialregister> GetGpcommercialregisters()
         {
             IEnumerable<Gpcommercialregister> loan = dbContext.Connection.Query<Gpcommercialregister>("GPADMIN_Package.GetAllCommercial"

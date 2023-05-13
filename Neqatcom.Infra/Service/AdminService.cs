@@ -15,7 +15,10 @@ namespace Neqatcom.Infra.Service
         {
             this.adminRepository = adminRepository;
         }
-
+        public void deleteComplaint(int cid)
+        {
+            adminRepository.deleteComplaint(cid);
+        }
         public List<ActorCounterDTO> ActorCounter()
         {
             return adminRepository.ActorCounter();

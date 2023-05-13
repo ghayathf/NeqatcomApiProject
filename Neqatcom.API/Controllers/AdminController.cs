@@ -23,6 +23,12 @@ namespace Neqatcom.API.Controllers
             this.adminService = adminService;
             this.lcService = lcService;
         }
+        [HttpPut]
+        [Route("deleteComplaint/{cid}")]
+        public void deleteComplaint(int cid)
+        {
+            adminService.deleteComplaint(cid);
+        }
         [HttpGet]
         [Route("GetAllCommercialRegistres")]
         public List<Gpcommercialregister> GetAllCommecialregister()

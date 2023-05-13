@@ -43,5 +43,6 @@ namespace Neqatcom.Core.DTO
         public string Userimage { get; set; }
         public string Categoryname { get; set; }
         public string Categoryimage { get; set; }
+        public string Bankaccount { get; set; }
     }
 }
