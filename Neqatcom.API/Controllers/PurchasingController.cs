@@ -66,5 +66,11 @@ namespace Neqatcom.API.Controllers
         {
             purchasingrService.PayCash(id);
         }
+        [HttpPut]
+        [Route("PayOnline/{id}")]
+        public void PayOnline(int id)
+        {
+            purchasingrService.PayOnline(id);
+        }
     }
 }
