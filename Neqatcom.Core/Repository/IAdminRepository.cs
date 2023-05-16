@@ -12,6 +12,7 @@ namespace Neqatcom.Core.Repository
         void HandleRegistarction(int IDD);
         List<LoaneeCreditScores> loaneeCreditScores();
         List<ActorCounterDTO> ActorCounter();
+        void deleteComplaint(int cid);
         List<LenderComplaints> GetLenderStoresComplaints();
         void ManageLenderComplaints(int loaid, int CID);
     }

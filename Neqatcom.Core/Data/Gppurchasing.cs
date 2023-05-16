@@ -11,6 +11,7 @@ namespace Neqatcom.Core.Data
         public DateTime? Paymentdate { get; set; }
         public decimal? Paymenttype { get; set; }
         public decimal? Loanid { get; set; }
+        public decimal? PaymentAmount { get; set; }
 
         public virtual Gploan Loan { get; set; }
     }
