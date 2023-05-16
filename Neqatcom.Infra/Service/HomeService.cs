@@ -16,7 +16,13 @@ namespace Neqatcom.Infra.Service
         {
             _homeRepository = homeRepository;
         }
-       
+
+        public void CalculateCreditScores()
+        {
+            _homeRepository.CalculateCreditScores();
+        }
+        
+
         public void CreateHomeInformation(Gphomepage finalHomepage)
         {
             _homeRepository.CreateHomeInformation(finalHomepage);
