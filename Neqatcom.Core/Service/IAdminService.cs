@@ -13,5 +13,7 @@ namespace Neqatcom.Core.Service
         List<LoaneeCreditScores> loaneeCreditScores();
 
         List<ActorCounterDTO> ActorCounter();
+        List<LenderComplaints> GetLenderStoresComplaints();
+        void ManageLenderComplaints(int loaid, int CID);
     }
 }

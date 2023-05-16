@@ -76,5 +76,12 @@ namespace Neqatcom.API.Controllers
         {
             _lenderStoreService.DeleteLenderStore(id);
         }
+        [HttpGet]
+        [Route("GetLenderPayments/{id}")]
+        public List<LenderPayment> GetLenderPayments(int id)
+        {
+            return _lenderStoreService.GetLenderPayments(id);
+        }
+
     }
 }

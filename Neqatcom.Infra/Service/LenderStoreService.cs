@@ -61,5 +61,10 @@ namespace Neqatcom.Infra.Service
         {
             _lenderStoreRepository.UpdateLenderStore(gplenderstore);
         }
+
+        public List<LenderPayment> GetLenderPayments(int lenderid)
+        {
+            return _lenderStoreRepository.GetLenderPayments(lenderid);
+        }
     }
 }

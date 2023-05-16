@@ -11,7 +11,8 @@ namespace Neqatcom.Core.Repository
         List<Gpcommercialregister> GetGpcommercialregisters();
         void HandleRegistarction(int IDD);
         List<LoaneeCreditScores> loaneeCreditScores();
-
         List<ActorCounterDTO> ActorCounter();
+        List<LenderComplaints> GetLenderStoresComplaints();
+        void ManageLenderComplaints(int loaid, int CID);
     }
 }

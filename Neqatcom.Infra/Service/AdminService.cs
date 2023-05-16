@@ -26,6 +26,11 @@ namespace Neqatcom.Infra.Service
             return adminRepository.GetGpcommercialregisters();
         }
 
+        public List<LenderComplaints> GetLenderStoresComplaints()
+        {
+            return adminRepository.GetLenderStoresComplaints();
+        }
+
         public void HandleRegistarction(int IDD)
         {
             adminRepository.HandleRegistarction(IDD);
@@ -34,6 +39,11 @@ namespace Neqatcom.Infra.Service
         public List<LoaneeCreditScores> loaneeCreditScores()
         {
             return adminRepository.loaneeCreditScores();
+        }
+
+        public void ManageLenderComplaints(int loaid, int CID)
+        {
+            adminRepository.ManageLenderComplaints(loaid, CID);
         }
     }
 }

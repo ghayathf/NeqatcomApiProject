@@ -33,11 +33,18 @@ namespace Neqatcom.Infra.Repository
             return loan.ToList();
         }
 
+        public List<LenderComplaints> GetLenderStoresComplaints()
+        {
+            IEnumerable<LenderComplaints> loan = dbContext.Connection.Query<LenderComplaints>("GPADMIN_Package.RetreiveLenderCompliantsInfo"
+             , commandType: CommandType.StoredProcedure);
+            return loan.ToList();
+        }
+
         public void HandleRegistarction(int IDD)
         {
             var p = new DynamicParameters();
             p.Add("IDD", IDD, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<Gphomepage> result = dbContext.Connection.Query<Gphomepage>("GPADMIN_Package.HandleRegistration", p, commandType: CommandType.StoredProcedure);
+            dbContext.Connection.Execute("GPADMIN_Package.HandleRegistration", p, commandType: CommandType.StoredProcedure);
           
         }
 
@@ -47,5 +54,14 @@ namespace Neqatcom.Infra.Repository
               , commandType: CommandType.StoredProcedure);
             return loan.ToList();
         }
+
+        public void ManageLenderComplaints(int loaid, int CID)
+        {
+            var p = new DynamicParameters();
+            p.Add("LoaID", loaid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("CID", CID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            dbContext.Connection.Execute("GPADMIN_Package.ManageLenderComplaints", p, commandType: CommandType.StoredProcedure);
+        }
+       
     }
 }

@@ -65,5 +65,17 @@ namespace Neqatcom.API.Controllers
         {
             return adminService.ActorCounter();
         }
+        [HttpGet]
+        [Route("GetLenderStoresComplaints")]
+        public List<LenderComplaints> GetLenderStoresComplaints()
+        {
+            return adminService.GetLenderStoresComplaints();
+        }
+        [HttpPost]
+        [Route("ManageLenderComplaints/{loaid}/{CID}")]
+        public void ManageLenderComplaints(int loaid, int CID)
+        {
+            adminService.ManageLenderComplaints(loaid, CID);
+        }
     }
 }
