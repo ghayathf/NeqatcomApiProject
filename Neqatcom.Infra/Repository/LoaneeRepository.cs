@@ -35,7 +35,7 @@ namespace Neqatcom.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("note", gpcomplaint.Compliantnotes, DbType.String, direction: ParameterDirection.Input);
-            p.Add("datof", gpcomplaint.Dateofcomplaints, DbType.DateTime, direction: ParameterDirection.Input);
+            //p.Add("datof", gpcomplaint.Dateofcomplaints, DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("LendId", gpcomplaint.Leid, DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("LoaneID", gpcomplaint.Loid, DbType.Decimal, direction: ParameterDirection.Input);
 
