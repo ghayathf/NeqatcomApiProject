@@ -15,5 +15,7 @@ namespace Neqatcom.Core.Repository
         void deleteComplaint(int cid);
         List<LenderComplaints> GetLenderStoresComplaints();
         void ManageLenderComplaints(int loaid, int CID);
+        List<CancleLoanAuto> CancleLoanAutomatically();
+        List<CancleLoanMsgforLender> CancleLoanAutoMsgForLender();
     }
 }

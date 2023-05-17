@@ -83,5 +83,18 @@ namespace Neqatcom.API.Controllers
         {
             adminService.ManageLenderComplaints(loaid, CID);
         }
+        [HttpGet]
+        [Route("CancleLoanAutomatically")]
+        public List<CancleLoanAuto> CancleLoanAutomatically()
+        {
+            return adminService.CancleLoanAutomatically();
+        }
+        [HttpGet]
+        [Route("CancleLoanAutoMsgForLender")]
+        public List<CancleLoanMsgforLender> CancleLoanAutoMsgForLender()
+        {
+            return adminService.CancleLoanAutoMsgForLender();
+        }
+
     }
 }

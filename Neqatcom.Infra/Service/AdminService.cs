@@ -48,5 +48,15 @@ namespace Neqatcom.Infra.Service
         {
             adminRepository.ManageLenderComplaints(loaid, CID);
         }
+
+        public List<CancleLoanAuto> CancleLoanAutomatically()
+        {
+            return adminRepository.CancleLoanAutomatically();
+        }
+
+        public List<CancleLoanMsgforLender> CancleLoanAutoMsgForLender()
+        {
+            return adminRepository.CancleLoanAutoMsgForLender();
+        }
     }
 }

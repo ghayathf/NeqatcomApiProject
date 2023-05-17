@@ -25,6 +25,21 @@ namespace Neqatcom.Infra.Repository
               , commandType: CommandType.StoredProcedure);
             return loan.ToList();
         }
+
+        public List<CancleLoanAuto> CancleLoanAutomatically()
+        {
+            IEnumerable<CancleLoanAuto> loan = dbContext.Connection.Query<CancleLoanAuto>("GP_HOMEPAGE_PACKAGE.CancleLoanAutomatically"
+               , commandType: CommandType.StoredProcedure);
+            return loan.ToList();
+        }
+
+        public List<CancleLoanMsgforLender> CancleLoanAutoMsgForLender()
+        {
+            IEnumerable<CancleLoanMsgforLender> loan = dbContext.Connection.Query<CancleLoanMsgforLender>("GP_HOMEPAGE_PACKAGE.CancleLoanAutoMsgForLender"
+               , commandType: CommandType.StoredProcedure);
+            return loan.ToList();
+        }
+
         public void deleteComplaint(int cid)
         {
             var p = new DynamicParameters();
