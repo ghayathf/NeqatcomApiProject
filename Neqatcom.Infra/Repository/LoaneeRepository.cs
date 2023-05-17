@@ -35,7 +35,7 @@ namespace Neqatcom.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("note", gpcomplaint.Compliantnotes, DbType.String, direction: ParameterDirection.Input);
-            p.Add("datof", gpcomplaint.Dateofcomplaints, DbType.DateTime, direction: ParameterDirection.Input);
+            //p.Add("datof", gpcomplaint.Dateofcomplaints, DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("LendId", gpcomplaint.Leid, DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("LoaneID", gpcomplaint.Loid, DbType.Decimal, direction: ParameterDirection.Input);
 
@@ -48,7 +48,12 @@ namespace Neqatcom.Infra.Repository
             p.Add("IDD", IDD, DbType.Int32, direction: ParameterDirection.Input);
             dbContext.Connection.Execute("GPLOANEE_Package.DeleteLoanee", p, commandType: CommandType.StoredProcedure);
         }
-
+        public List<Gpnationalnumber> GetAllGpnationalnumber()
+        {
+            IEnumerable<Gpnationalnumber> gpnationalnumbers = dbContext.Connection.Query<Gpnationalnumber>("GPLOANEE_Package.GetAllNationalNumbers"
+                 , commandType: CommandType.StoredProcedure);
+            return gpnationalnumbers.ToList();
+        }
         public List<Gploanee> GetAllLoanees()
         {
             IEnumerable<Gploanee> loanee = dbContext.Connection.Query<Gploanee>("GPLOANEE_Package.GetAllLoanees"

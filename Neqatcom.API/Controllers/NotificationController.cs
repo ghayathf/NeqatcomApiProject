@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Neqatcom.Core.Data;
 using Neqatcom.Core.Service;
+using System.Collections.Generic;
 
 namespace Neqatcom.API.Controllers
 {
@@ -15,13 +16,11 @@ namespace Neqatcom.API.Controllers
         {
 
             this._notificationsService = notificationsService;
-
-
         }
 
         [HttpGet]
         [Route("GetNotificationById/{id}")]
-        public Notification GetNotificationById(int id)
+        public List<Notification> GetNotificationById(int id)
         {
            return _notificationsService.GetNotificationById(id);
         }

@@ -7,16 +7,17 @@ using System.Text;
 namespace Neqatcom.Core.Service
 {
    public interface ILoaneeService
-    {
+    {  
         void CreateLoanee(Gploanee loanee);
         void UpdateLoanee(Gploanee loanee);
         void DeleteLoanee(int IDD);
         Gploanee GetLoaneeByID(int IDD);
         List<Gploanee> GetAllLoanees();
-        List<LoaneeUser> GetAllLoaneeUser();
+        List<LoaneeUser> GetAllLoaneeUser();     
         List<CurrentAndFinishedLoans> GetCurrentAndFinishedLoans(int LID);
         void giveComplaintForLender(Gpcomplaint gpcomplaint);
         List<ConfirmLoans> GetLoansToConfirm(int loaneeidd);
+        List<Gpnationalnumber> GetAllGpnationalnumber();
 
     }
 }

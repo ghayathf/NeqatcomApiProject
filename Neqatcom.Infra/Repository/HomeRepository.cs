@@ -19,7 +19,13 @@ namespace Neqatcom.Infra.Repository
             this._dbContext = _dbContext;
 
         }
-       
+
+        public void CalculateCreditScores()
+        {
+            var result = _dbContext.Connection.Execute("GP_HOMEPAGE_PACKAGE.CalculatCreditScore", commandType: CommandType.StoredProcedure);
+
+        }
+
         public void CreateHomeInformation(Gphomepage finalHomepage)
         {
             var p = new DynamicParameters();
@@ -91,7 +97,7 @@ namespace Neqatcom.Infra.Repository
             //var p = new DynamicParameters();
             //p.Add("currentDate", CurrentDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
 
-            var result = _dbContext.Connection.Execute("GP_HOMEPAGE_PACKAGE.UpdateBeforeReminder", commandType: CommandType.StoredProcedure); ;
+            var result = _dbContext.Connection.Execute("GP_HOMEPAGE_PACKAGE.UpdateBeforeReminder", commandType: CommandType.StoredProcedure); 
         }
 
         public void UpdateHomeInformation(Gphomepage finalHomepage)

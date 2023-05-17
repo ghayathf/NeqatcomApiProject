@@ -31,6 +31,12 @@ namespace Neqatcom.API.Controllers
         {
             loaneeService.CreateLoanee(loanee);
         }
+        [HttpGet]
+        [Route("GetAllGpnationalnumber")]
+        public List<Gpnationalnumber> GetAllGpnationalnumber()
+        {
+            return loaneeService.GetAllGpnationalnumber();
+        }
         [HttpDelete]
         [Route("DeleteLoanee/{id}")]
         public void DeleteLoanee(int id)
@@ -57,7 +63,7 @@ namespace Neqatcom.API.Controllers
         }
         [HttpPut]
         [Route("UpdateLoanee")]
-        public void UpdateLoanee(Gploanee loanee)
+        public void UpdateLoanee(Gploanee loanee)  
         {
             loaneeService.UpdateLoanee(loanee);
         } 

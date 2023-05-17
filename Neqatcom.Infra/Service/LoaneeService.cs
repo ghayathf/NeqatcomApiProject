@@ -24,6 +24,10 @@ namespace Neqatcom.Infra.Service
         {
             loaneeRepository.giveComplaintForLender(gpcomplaint);
         }
+        public List<Gpnationalnumber> GetAllGpnationalnumber()
+        {
+            return loaneeRepository.GetAllGpnationalnumber();
+        }
         public void DeleteLoanee(int IDD)
         {
             loaneeRepository.DeleteLoanee(IDD);
