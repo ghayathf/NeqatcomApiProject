@@ -49,5 +49,12 @@ namespace Neqatcom.API.Controllers
         {
             return _testimonialService.GetAllTestimonial();
         }
+        [HttpGet]
+        [Route("AccpetedTestimonial")]
+        public List<TestimonalUser> GetTestimonialHome()
+        {
+            return _testimonialService.GetTestimonialHome();
+        }
+
     }
 }

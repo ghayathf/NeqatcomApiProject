@@ -9,6 +9,7 @@ namespace Neqatcom.Core.Repository
     public interface ITestimonialRepository
     {
         List<TestimonalUser> GetAllTestimonial();
+        List<TestimonalUser> GetTestimonialHome();
         Gptestimonial GetTestimonialById(int id);
         void CreateHomeTestimonial(Gptestimonial finalTestimonial);
         void UpdateTestimonial(Gptestimonial finalTestimonial);

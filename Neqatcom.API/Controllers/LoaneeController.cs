@@ -63,7 +63,7 @@ namespace Neqatcom.API.Controllers
         }
         [HttpPut]
         [Route("UpdateLoanee")]
-        public void UpdateLoanee(Gploanee loanee)
+        public void UpdateLoanee(Gploanee loanee)  
         {
             loaneeService.UpdateLoanee(loanee);
         } 
