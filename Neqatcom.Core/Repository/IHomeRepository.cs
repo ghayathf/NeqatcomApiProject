@@ -21,5 +21,7 @@ namespace Neqatcom.Core.Repository
         void UpdateInPayDateReminder();
         List<LoaneeReminder> GetLoaneeslatePayDaytoRemind();
         void UpdateLatePayDateReminder();
+        void CalculateCreditScores();
+
     }
 }

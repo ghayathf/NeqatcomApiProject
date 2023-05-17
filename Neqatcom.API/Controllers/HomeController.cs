@@ -112,6 +112,12 @@ namespace Neqatcom.API.Controllers
         {
             _homeService.UpdateLatePayDateReminder();
         }
+        [HttpPost]
+        [Route("CalculateCreditScores")]
+        public void CalculateCreditScores()
+        {
+            _homeService.CalculateCreditScores();
+        }
 
     }
 }
