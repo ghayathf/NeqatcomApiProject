@@ -19,7 +19,13 @@ namespace Neqatcom.Infra.Repository
             this._dbContext = _dbContext;
 
         }
-       
+
+        public void CalculateCreditScores()
+        {
+            var result = _dbContext.Connection.Execute("GP_HOMEPAGE_PACKAGE.CalculatCreditScore", commandType: CommandType.StoredProcedure);
+
+        }
+
         public void CreateHomeInformation(Gphomepage finalHomepage)
         {
             var p = new DynamicParameters();
@@ -56,10 +62,42 @@ namespace Neqatcom.Infra.Repository
             return result.FirstOrDefault();
         }
 
+        public List<LoaneeReminder> GetLoaneesInPayDaytoRemind()
+        {
+            //var p = new DynamicParameters();
+            //p.Add("currentDate", CurrentDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            IEnumerable<LoaneeReminder> result = _dbContext.Connection.Query<LoaneeReminder>("GP_HOMEPAGE_PACKAGE.InPayDayReminder",  commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<LoaneeReminder> GetLoaneeslatePayDaytoRemind()
+        {
+            //var p = new DynamicParameters();
+            //p.Add("currentDate", CurrentDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            IEnumerable<LoaneeReminder> result = _dbContext.Connection.Query<LoaneeReminder>("GP_HOMEPAGE_PACKAGE.LateDayReminder",  commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<LoaneeReminder> GetLoaneestoRemind()
+        {
+            //var p = new DynamicParameters();
+            //p.Add("currentDate", CurrentDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            IEnumerable<LoaneeReminder> result = _dbContext.Connection.Query<LoaneeReminder>("GP_HOMEPAGE_PACKAGE.PreDayReminder", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public List<Lengths> getTableLength()
         {
             IEnumerable<Lengths> result = _dbContext.Connection.Query<Lengths>("GP_HOMEPAGE_PACKAGE.getTableLength", commandType: CommandType.StoredProcedure);
             return result.ToList();
+        }
+
+        public void UpdateBeforeReminder()
+        {
+            //var p = new DynamicParameters();
+            //p.Add("currentDate", CurrentDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Execute("GP_HOMEPAGE_PACKAGE.UpdateBeforeReminder", commandType: CommandType.StoredProcedure); 
         }
 
         public void UpdateHomeInformation(Gphomepage finalHomepage)
@@ -76,6 +114,22 @@ namespace Neqatcom.Infra.Repository
             p.Add("PHONE", finalHomepage.Companyphonenumber, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("GP_HOMEPAGE_PACKAGE.UPDATEHOMEINFO", p, commandType: CommandType.StoredProcedure);
+        }
+
+        public void UpdateInPayDateReminder()
+        {
+            //var p = new DynamicParameters();
+            //p.Add("currentDate", CurrentDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Execute("GP_HOMEPAGE_PACKAGE.UpdateInPayDateReminder",  commandType: CommandType.StoredProcedure); ;
+        }
+
+        public void UpdateLatePayDateReminder()
+        {
+            //var p = new DynamicParameters();
+            //p.Add("currentDate", CurrentDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Execute("GP_HOMEPAGE_PACKAGE.UpdateLatePayDateReminder",  commandType: CommandType.StoredProcedure); ;
         }
     }
 }

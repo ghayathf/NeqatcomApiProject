@@ -37,7 +37,7 @@ namespace Neqatcom.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("note", gpcomplaint.Compliantnotes, DbType.String, direction: ParameterDirection.Input);
-            p.Add("datof", gpcomplaint.Dateofcomplaints, DbType.DateTime, direction: ParameterDirection.Input);
+            //p.Add("datof", gpcomplaint.Dateofcomplaints, DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("LendId", gpcomplaint.Leid, DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("LoaneID", gpcomplaint.Loid, DbType.Decimal, direction: ParameterDirection.Input);
 
@@ -86,9 +86,7 @@ namespace Neqatcom.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("ID_", id, DbType.Int32, direction: ParameterDirection.Input);
-
             IEnumerable<LoaneesForLendercs> gplenderstores = _dbContext.Connection.Query<LoaneesForLendercs>("GP_LENDERSTORE_PACKAGE.LOANEESFORLENDER", p, commandType: CommandType.StoredProcedure);
-
             return gplenderstores.ToList();
         }
     
@@ -96,7 +94,6 @@ namespace Neqatcom.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("ID_", gplenderstore.Lenderid, DbType.Int32, direction: ParameterDirection.Input);
-
             p.Add("COMMERCIALREGISTER_", gplenderstore.Commercialregister, DbType.String, direction: ParameterDirection.Input);
             p.Add("USERID_", gplenderstore.Lenderuserid, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("REGISTERSTATUS_", gplenderstore.Registerstatus, DbType.Int32, direction: ParameterDirection.Input);
@@ -113,9 +110,18 @@ namespace Neqatcom.Infra.Repository
             var p = new DynamicParameters();
             p.Add("LenderIDD", lenderid, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("LoaneeIDD", loaneeid, DbType.Int32, direction: ParameterDirection.Input);
-
             IEnumerable<LoanOffer> loanOffers = _dbContext.Connection.Query<LoanOffer>("GP_LENDERSTORE_PACKAGE.LoansForLoanee", p, commandType: CommandType.StoredProcedure);
             return loanOffers.ToList();
+        }
+
+        public List<LenderPayment> GetLenderPayments(int lenderid)
+        {
+            var p = new DynamicParameters();
+            p.Add("lender_id", lenderid, DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<LenderPayment> gplenderstores = _dbContext.Connection.Query<LenderPayment>("GP_LENDERSTORE_PACKAGE.GetLenderPayments", p, commandType: CommandType.StoredProcedure);
+
+            return gplenderstores.ToList();
         }
     }
 }

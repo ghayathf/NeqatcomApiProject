@@ -18,5 +18,6 @@ namespace Neqatcom.Core.Service
         List<LoanOffer> GetAllLoanOffer(int lenderid, int loaneeid);
         LenderInfo GetLenderInfo(int id);
         void giveComplaintForLoanee(Gpcomplaint gpcomplaint);
+        List<LenderPayment> GetLenderPayments(int lenderid);
     }
 }

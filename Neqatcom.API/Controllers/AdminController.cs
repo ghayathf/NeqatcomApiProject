@@ -23,6 +23,12 @@ namespace Neqatcom.API.Controllers
             this.adminService = adminService;
             this.lcService = lcService;
         }
+        [HttpPut]
+        [Route("deleteComplaint/{cid}")]
+        public void deleteComplaint(int cid)
+        {
+            adminService.deleteComplaint(cid);
+        }
         [HttpGet]
         [Route("GetAllCommercialRegistres")]
         public List<Gpcommercialregister> GetAllCommecialregister()
@@ -64,6 +70,18 @@ namespace Neqatcom.API.Controllers
         public List<ActorCounterDTO> ActorCounter()
         {
             return adminService.ActorCounter();
+        }
+        [HttpGet]
+        [Route("GetLenderStoresComplaints")]
+        public List<LenderComplaints> GetLenderStoresComplaints()
+        {
+            return adminService.GetLenderStoresComplaints();
+        }
+        [HttpPost]
+        [Route("ManageLenderComplaints/{loaid}/{CID}")]
+        public void ManageLenderComplaints(int loaid, int CID)
+        {
+            adminService.ManageLenderComplaints(loaid, CID);
         }
     }
 }

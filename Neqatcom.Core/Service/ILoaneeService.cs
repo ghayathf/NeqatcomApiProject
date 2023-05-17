@@ -16,6 +16,8 @@ namespace Neqatcom.Core.Service
         List<LoaneeUser> GetAllLoaneeUser();     
         List<CurrentAndFinishedLoans> GetCurrentAndFinishedLoans(int LID);
         void giveComplaintForLender(Gpcomplaint gpcomplaint);
+        List<ConfirmLoans> GetLoansToConfirm(int loaneeidd);
+        List<Gpnationalnumber> GetAllGpnationalnumber();
 
     }
 }

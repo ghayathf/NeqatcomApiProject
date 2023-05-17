@@ -31,6 +31,12 @@ namespace Neqatcom.API.Controllers
         {
             loaneeService.CreateLoanee(loanee);
         }
+        [HttpGet]
+        [Route("GetAllGpnationalnumber")]
+        public List<Gpnationalnumber> GetAllGpnationalnumber()
+        {
+            return loaneeService.GetAllGpnationalnumber();
+        }
         [HttpDelete]
         [Route("DeleteLoanee/{id}")]
         public void DeleteLoanee(int id)
@@ -66,6 +72,12 @@ namespace Neqatcom.API.Controllers
         public List<CurrentAndFinishedLoans> GetCurrentAndFinishedLoans(int LID)
         {
             return loaneeService.GetCurrentAndFinishedLoans(LID);
+        }
+        [HttpGet]
+        [Route("GetConfirmLoans/{loaneeidd}")]
+        public List<ConfirmLoans> GetConfirmLoans(int loaneeidd)
+        {
+            return loaneeService.GetLoansToConfirm(loaneeidd);
         }
     }
 }

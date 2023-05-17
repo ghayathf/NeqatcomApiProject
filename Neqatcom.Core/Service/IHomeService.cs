@@ -15,5 +15,13 @@ namespace Neqatcom.Core.Service
 
         void DeleteHomeInformation(int id);
         List<Lengths> getTableLength();
+        List<LoaneeReminder> GetLoaneestoRemind();
+        void UpdateBeforeReminder();
+        List<LoaneeReminder> GetLoaneesInPayDaytoRemind();
+        void UpdateInPayDateReminder();
+        List<LoaneeReminder> GetLoaneeslatePayDaytoRemind();
+        void UpdateLatePayDateReminder();
+        void CalculateCreditScores();
+
     }
 }

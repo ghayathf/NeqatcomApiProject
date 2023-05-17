@@ -30,6 +30,7 @@ namespace Neqatcom.Core.DTO
         public decimal? Registerstatus { get; set; }
         public decimal? Shadowstatus { get; set; }
         public string Companysize { get; set; }
+        public decimal? Managestatus { get; set; }
         public string Siteurl { get; set; }
         public DateTime? Warndate { get; set; }
         public decimal? Warncounter { get; set; }
