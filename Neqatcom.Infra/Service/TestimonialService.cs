@@ -31,6 +31,10 @@ namespace Neqatcom.Infra.Service
             return testimonialRepository.GetAllTestimonial();
         }
 
+        public List<TestimonalUser> GetTestimonialAccepted()
+        {
+            return testimonialRepository.GetTestimonialAccepted();
+        }
 
         public Gptestimonial GetTestimonialById(int id)
 
