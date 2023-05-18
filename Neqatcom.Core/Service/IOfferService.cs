@@ -15,6 +15,7 @@ namespace Neqatcom.Core.Service
         void DeleteOffer(int id);
         List<LoaneeMain> GetLoaneeMain();
         List<Gpoffer> GetAllOferById(int id);
+        List<OffersForLenderMain> GetOffersForLenderMain(int lendId);
 
     }
 }

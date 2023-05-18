@@ -16,6 +16,7 @@ namespace Neqatcom.Core.Repository
         List<LoaneeMain> GetLoaneeMain();
 
         List<Gpoffer> GetAllOferById(int id);
+        List<OffersForLenderMain> GetOffersForLenderMain(int lendId);
 
     }
 }
