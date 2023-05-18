@@ -41,5 +41,11 @@ namespace Neqatcom.Core.DTO
         public string Role { get; set; }
         public string Username { get; set; }
         public string Userimage { get; set; }
+        public decimal Meetingid { get; set; }
+      
+        public string Meetingurl { get; set; }
+        public decimal? Feedbackk { get; set; }
+        public string Meetingtime { get; set; }
+
     }
 }

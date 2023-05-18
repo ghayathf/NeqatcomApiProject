@@ -79,5 +79,11 @@ namespace Neqatcom.API.Controllers
         {
             return loaneeService.GetLoansToConfirm(loaneeidd);
         }
+        [HttpPut]
+        [Route("GiveRateForLender/{IDD}/{feedbak}")]
+        public void GiveRateForLender(int IDD, int feedbak)
+        {
+            loaneeService.GiveRateForLender(IDD, feedbak);
+        }
     }
 }
