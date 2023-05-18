@@ -64,5 +64,13 @@ namespace Neqatcom.API.Controllers
             _offerService.DeleteOffer(id);
         }
 
+        [HttpGet]
+        [Route("GetLoansRandomly")]
+        public List<LoaneeMain> GetLoansRandomly()
+        {
+            return _offerService.GetLoansRandomly();
+
+        }
+
     }
 }

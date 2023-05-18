@@ -78,5 +78,12 @@ namespace Neqatcom.Infra.Repository
 
             var result = _dbContext.Connection.Execute("GP_Offer_Package.UpdateOffer", p, commandType: CommandType.StoredProcedure);
         }
+
+        public List<LoaneeMain> GetLoansRandomly()
+        {
+
+            IEnumerable<LoaneeMain> result = _dbContext.Connection.Query<LoaneeMain>("GP_Offer_Package.GetOfferRandomly", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

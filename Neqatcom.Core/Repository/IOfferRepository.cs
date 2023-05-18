@@ -10,6 +10,7 @@ namespace Neqatcom.Core.Repository
     {
         List<Gpoffer> GetAllOffers();
         Gpoffer GetOfferById(int id);
+        List<LoaneeMain> GetLoansRandomly();
         void CreateOffer(Gpoffer offer);
         void UpdateOffer(Gpoffer offer);
         void DeleteOffer(int id);
