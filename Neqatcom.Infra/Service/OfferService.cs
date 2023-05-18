@@ -24,7 +24,10 @@ namespace Neqatcom.Infra.Service
         {
             return offerRepository.GetLoaneeMain();
         }
-
+        public List<OffersForLenderMain> GetOffersForLenderMain(int lendId)
+        {
+            return offerRepository.GetOffersForLenderMain(lendId);
+        }
         public void DeleteOffer(int id)
         {
             offerRepository.DeleteOffer(id);

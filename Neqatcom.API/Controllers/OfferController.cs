@@ -29,7 +29,12 @@ namespace Neqatcom.API.Controllers
         {
             return _offerService.GetAllOferById(id);
         }
-
+        [HttpGet]
+        [Route("GetOffersForLenderMain/{lendId}")]
+        public List<OffersForLenderMain> GetOffersForLenderMain(int lendId)
+        {
+            return _offerService.GetOffersForLenderMain(lendId);
+        }
         [HttpGet]
         [Route("GetLoaneeMain")]
         public List<LoaneeMain> GetLoaneeMain()

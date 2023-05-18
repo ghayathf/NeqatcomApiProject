@@ -42,7 +42,14 @@ namespace Neqatcom.Infra.Repository
             IEnumerable<LoaneeMain> result = _dbContext.Connection.Query<LoaneeMain>("GP_Offer_Package.OFFERSFORLOANEEMAIN", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+        public List<OffersForLenderMain> GetOffersForLenderMain(int lendId)
+        {
+            var p = new DynamicParameters();
+            p.Add("lendId", lendId, dbType: DbType.Int32, ParameterDirection.Input);
 
+            IEnumerable<OffersForLenderMain> result = _dbContext.Connection.Query<OffersForLenderMain>("GP_Offer_Package.getOffersForLender",p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
         public List<Gpoffer> GetAllOferById(int id)
         {
             var p = new DynamicParameters();
