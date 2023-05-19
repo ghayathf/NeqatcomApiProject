@@ -10,6 +10,7 @@ namespace Neqatcom.Core.Repository
     {
         List<TestimonalUser> GetAllTestimonial();
         List<TestimonalUser> GetTestimonialHome();
+        List<TestimonalUser> GetTestimonialAccepted();
         Gptestimonial GetTestimonialById(int id);
         void CreateHomeTestimonial(Gptestimonial finalTestimonial);
         void UpdateTestimonial(Gptestimonial finalTestimonial);

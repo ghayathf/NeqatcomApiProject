@@ -52,5 +52,10 @@ namespace Neqatcom.Infra.Service
         {
             offerRepository.UpdateOffer(offer);
         }
+
+        public List<LoaneeMain> GetLoansRandomly()
+        {
+            return offerRepository.GetLoansRandomly();
+        }
     }
 }
