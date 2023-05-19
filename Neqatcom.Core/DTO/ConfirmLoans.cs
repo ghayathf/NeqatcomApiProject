@@ -46,6 +46,9 @@ namespace Neqatcom.Core.DTO
         public string Meetingurl { get; set; }
         public decimal? Feedbackk { get; set; }
         public string Meetingtime { get; set; }
+    
+        public string Categoryname { get; set; }
+        public string Categoryimage { get; set; }
 
     }
 }

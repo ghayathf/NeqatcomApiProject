@@ -66,5 +66,9 @@ namespace Neqatcom.Infra.Service
         {
             return _lenderStoreRepository.GetLenderPayments(lenderid);
         }
+        public List<Lengths> GetLenderCounters(int lenderid)
+        {
+            return _lenderStoreRepository.GetLenderCounters(lenderid);
+        }
     }
 }
