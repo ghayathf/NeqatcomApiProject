@@ -82,6 +82,12 @@ namespace Neqatcom.API.Controllers
         {
             return _lenderStoreService.GetLenderPayments(id);
         }
+        [HttpGet]
+        [Route("GetLenderCounters/{lenderid}")]
+        public List<Lengths> GetLenderCounters(int lenderid)
+        {
+            return _lenderStoreService.GetLenderCounters(lenderid);
+        }
 
     }
 }
