@@ -27,7 +27,7 @@ namespace Neqatcom.API.Controllers
         [Route("GetAllMeetings")]
         public async Task<IActionResult> GetAllMeetings()
         {
-            var accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IlFsNm1WSHJEU0lHeWJXUTlMWTcyUXciLCJleHAiOjE2ODM4NTEwMTQsImlhdCI6MTY4Mzg0NTYxNX0.IH8zniXyW52ZlEpuitjKlVl1FBJeiI_wxhOz2AOHsmU";
+            var accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IlFsNm1WSHJEU0lHeWJXUTlMWTcyUXciLCJleHAiOjE2ODUwODk0NTIsImlhdCI6MTY4NDQ4NDY1Mn0.sALBazd3KvRRZbAu2Ryf0W546STYcB8qxvG1jze_9ow";
             var requestUrl = "https://api.zoom.us/v2/users/me/meetings";
 
             var request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
@@ -59,7 +59,7 @@ namespace Neqatcom.API.Controllers
         [Route("CreateMeeting")]
         public async Task<IActionResult> CreateMeeting([FromBody] ZoomMeeting meeting)
         {
-            var accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IlFsNm1WSHJEU0lHeWJXUTlMWTcyUXciLCJleHAiOjE2ODM4NTEwMTQsImlhdCI6MTY4Mzg0NTYxNX0.IH8zniXyW52ZlEpuitjKlVl1FBJeiI_wxhOz2AOHsmU"; // your access token here
+            var accessToken = "eyJzdiI6IjAwMDAwMSIsImFsZyI6IkhTNTEyIiwidiI6IjIuMCIsImtpZCI6IjE0OGVmM2RlLTAyZTktNDkyZS1iMWEyLTBhZDYzMzI1ZjAzMiJ9.eyJ2ZXIiOjksImF1aWQiOiJkYmRmNmRjZjM3YmQ1MTJlYjcyMTFiNTgzZGMyZWI2NiIsImNvZGUiOiJSSWxpNkJ5ejdpekFCLWRpS2JkUXN5MmZGUldZQjZZclEiLCJpc3MiOiJ6bTpjaWQ6NTRPTDZTMFJGaW9PYlF6QWw0aHJ3IiwiZ25vIjowLCJ0eXBlIjowLCJ0aWQiOjAsImF1ZCI6Imh0dHBzOi8vb2F1dGguem9vbS51cyIsInVpZCI6IndNVlVOWlRqVDEtV0tEcktqVGQxUkEiLCJuYmYiOjE2ODQ0ODY3MzEsImV4cCI6MTY4NDQ5MDMzMSwiaWF0IjoxNjg0NDg2NzMxLCJhaWQiOiJtclRBRWhVN1FSQ3lZeExiRVRRY2VBIn0.Qo0yGjtLt00XUC4Z-RWm24ir41bwYDK7yLj4yfwjmqtShU88V_pgCoFrQE-bhqjQH0NViGhvmJuOiHpLDGtCvQ"; // your access token here
             var requestUrl = "https://api.zoom.us/v2/users/me/meetings";
 
             var request = new HttpRequestMessage(HttpMethod.Post, requestUrl);
