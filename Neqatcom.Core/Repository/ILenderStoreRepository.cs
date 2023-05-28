@@ -19,6 +19,8 @@ namespace Neqatcom.Core.Repository
         LenderInfo GetLenderInfo(int id);
         void giveComplaintForLoanee(Gpcomplaint gpcomplaint);
         List<LenderPayment> GetLenderPayments(int lenderid);
+        List<Lengths> GetLenderCounters(int IDD);
+
 
     }
 }

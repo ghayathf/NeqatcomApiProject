@@ -107,5 +107,13 @@ namespace Neqatcom.Infra.Repository
 
             dbContext.Connection.Execute("GPLOANEE_Package.UpdateLoanee", p, commandType: CommandType.StoredProcedure);
         }
+
+        public void GiveRateForLender(int IDD, int feedbak)
+        {
+            var p = new DynamicParameters();
+            p.Add("IDD", IDD, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("feedback", feedbak, DbType.Int32, direction: ParameterDirection.Input);
+            dbContext.Connection.Execute("GPLOANEE_Package.GiveRateForLender", p, commandType: CommandType.StoredProcedure);
+        }
     }
 }

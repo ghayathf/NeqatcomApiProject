@@ -11,6 +11,7 @@ namespace Neqatcom.Core.Service
         List<Gpoffer> GetAllOffers();
         Gpoffer GetOfferById(int id);
         void CreateOffer(Gpoffer offer);
+        List<LoaneeMain> GetLoansRandomly();
         void UpdateOffer(Gpoffer offer);
         void DeleteOffer(int id);
         List<LoaneeMain> GetLoaneeMain();

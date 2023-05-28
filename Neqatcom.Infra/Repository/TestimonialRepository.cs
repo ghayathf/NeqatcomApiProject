@@ -45,6 +45,12 @@ namespace Neqatcom.Infra.Repository
             return result.ToList();
         }
 
+        public List<TestimonalUser> GetTestimonialAccepted()
+        {
+            IEnumerable<TestimonalUser> result = _dbContext.Connection.Query<TestimonalUser>("GP_Testimonial_Package.GetTestimonialsHome", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public Gptestimonial GetTestimonialById(int id)
         {
             var p = new DynamicParameters();

@@ -44,6 +44,8 @@ namespace Neqatcom.Infra.Repository
             _dbContext.Connection.Execute("GP_LENDERSTORE_PACKAGE.GiveComplaintToLoanee", p, commandType: CommandType.StoredProcedure);
 
         }
+
+
         public void DeleteLenderStore(int id)
         {
             var p = new DynamicParameters();
@@ -120,6 +122,16 @@ namespace Neqatcom.Infra.Repository
             p.Add("lender_id", lenderid, DbType.Int32, direction: ParameterDirection.Input);
 
             IEnumerable<LenderPayment> gplenderstores = _dbContext.Connection.Query<LenderPayment>("GP_LENDERSTORE_PACKAGE.GetLenderPayments", p, commandType: CommandType.StoredProcedure);
+
+            return gplenderstores.ToList();
+        }
+
+        public List<Lengths> GetLenderCounters(int IDD)
+        {
+            var p = new DynamicParameters();
+            p.Add("IDD", IDD, DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<Lengths> gplenderstores = _dbContext.Connection.Query<Lengths>("GP_LENDERSTORE_PACKAGE.getTableLengthForLender", p, commandType: CommandType.StoredProcedure);
 
             return gplenderstores.ToList();
         }

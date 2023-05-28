@@ -20,5 +20,7 @@ namespace Neqatcom.Core.Service
         LenderAdminStatistics lenderAdminStatistics();
         ComplaintsStatistics complaintsStatistics();
         CategoriesStatistics categoriesStatistics();
+        List<CancleLoanAuto> CancleLoanAutomatically();
+        List<CancleLoanMsgforLender> CancleLoanAutoMsgForLender();
     }
 }

@@ -62,5 +62,10 @@ namespace Neqatcom.Infra.Service
         {
             loaneeRepository.UpdateLoanee(loanee);
         }
+
+        public void GiveRateForLender(int IDD, int feedbak)
+        {
+            loaneeRepository.GiveRateForLender(IDD, feedbak);
+        }
     }
 }

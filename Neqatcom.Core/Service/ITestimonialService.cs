@@ -11,6 +11,7 @@ namespace Neqatcom.Core.Service
         List<TestimonalUser> GetAllTestimonial();
         Gptestimonial GetTestimonialById(int id);
         List<TestimonalUser> GetTestimonialHome();
+        List<TestimonalUser> GetTestimonialAccepted();
         void CreateHomeTestimonial(Gptestimonial finalTestimonial);
         void UpdateTestimonial(Gptestimonial finalTestimonial);
         void DeleteTestimonial(int id);
