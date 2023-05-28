@@ -74,7 +74,30 @@ namespace Neqatcom.Infra.Repository
               , commandType: CommandType.StoredProcedure);
             return loan.ToList();
         }
-
+        public CategoriesStatistics categoriesStatistics()
+        {
+            IEnumerable<CategoriesStatistics> loan = dbContext.Connection.Query<CategoriesStatistics>("GPADMIN_Package.GetStatistics"
+              , commandType: CommandType.StoredProcedure);
+            return loan.FirstOrDefault();
+        }
+        public ComplaintsStatistics complaintsStatistics()
+        {
+            IEnumerable<ComplaintsStatistics> loan = dbContext.Connection.Query<ComplaintsStatistics>("GPADMIN_Package.GetComplaintStatistics"
+              , commandType: CommandType.StoredProcedure);
+            return loan.FirstOrDefault();
+        }
+        public AdminStatisticsLoanee AdminStatisticsLoanee()
+        {
+            IEnumerable<AdminStatisticsLoanee> loan = dbContext.Connection.Query<AdminStatisticsLoanee>("GPADMIN_Package.GetLoanStatistics"
+              , commandType: CommandType.StoredProcedure);
+            return loan.FirstOrDefault();
+        }
+        public LenderAdminStatistics lenderAdminStatistics()
+        {
+            IEnumerable<LenderAdminStatistics> loan = dbContext.Connection.Query<LenderAdminStatistics>("GPADMIN_Package.GetLenderStats"
+              , commandType: CommandType.StoredProcedure);
+            return loan.FirstOrDefault();
+        }
         public void ManageLenderComplaints(int loaid, int CID)
         {
             var p = new DynamicParameters();

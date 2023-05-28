@@ -16,6 +16,10 @@ namespace Neqatcom.Core.Service
         void deleteComplaint(int cid);
         List<LenderComplaints> GetLenderStoresComplaints();
         void ManageLenderComplaints(int loaid, int CID);
+        AdminStatisticsLoanee AdminStatisticsLoanee();
+        LenderAdminStatistics lenderAdminStatistics();
+        ComplaintsStatistics complaintsStatistics();
+        CategoriesStatistics categoriesStatistics();
         List<CancleLoanAuto> CancleLoanAutomatically();
         List<CancleLoanMsgforLender> CancleLoanAutoMsgForLender();
     }
