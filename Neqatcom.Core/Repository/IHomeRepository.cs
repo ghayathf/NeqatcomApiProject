@@ -22,6 +22,7 @@ namespace Neqatcom.Core.Repository
         List<LoaneeReminder> GetLoaneeslatePayDaytoRemind();
         void UpdateLatePayDateReminder();
         void CalculateCreditScores();
+        List<Boolean> CreditScoreStatus(int loaneeid);
 
     }
 }

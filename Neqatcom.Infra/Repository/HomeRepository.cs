@@ -40,6 +40,14 @@ namespace Neqatcom.Infra.Repository
             var result = _dbContext.Connection.Execute("GP_HOMEPAGE_PACKAGE.CREATEHOMEINFO", p, commandType: CommandType.StoredProcedure);
         }
 
+        public List<bool> CreditScoreStatus(int loaneeid)
+        {
+            var p = new DynamicParameters();
+            p.Add("IDD", loaneeid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<bool> result = _dbContext.Connection.Query<bool>("GP_HOMEPAGE_PACKAGE.CreditScoreStatus",p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public void DeleteHomeInformation(int id)
         {
             var p = new DynamicParameters();

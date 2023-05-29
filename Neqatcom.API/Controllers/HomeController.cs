@@ -118,6 +118,11 @@ namespace Neqatcom.API.Controllers
         {
             _homeService.CalculateCreditScores();
         }
-
+        [HttpGet]
+        [Route("CreditScoreStatus/{loaneeid}")]
+        public List<bool> CreditScoreStatus(int loaneeid)
+        {
+            return _homeService.CreditScoreStatus(loaneeid);
+        }
     }
 }

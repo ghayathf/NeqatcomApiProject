@@ -30,6 +30,30 @@ namespace Neqatcom.API.Controllers
             adminService.deleteComplaint(cid);
         }
         [HttpGet]
+        [Route("categoriesStatistics")]
+        public CategoriesStatistics categoriesStatistics()
+        {
+            return adminService.categoriesStatistics();
+        }
+        [HttpGet]
+        [Route("complaintsStatistics")]
+        public ComplaintsStatistics complaintsStatistics()
+        {
+            return adminService.complaintsStatistics();
+        }
+        [HttpGet]
+        [Route("lenderAdminStatistics")]
+        public LenderAdminStatistics lenderAdminStatistics()
+        {
+            return adminService.lenderAdminStatistics();
+        }
+        [HttpGet]
+        [Route("AdminStatisticsLoanee")]
+        public AdminStatisticsLoanee AdminStatisticsLoanee()
+        {
+            return adminService.AdminStatisticsLoanee();
+        }
+        [HttpGet]
         [Route("GetAllCommercialRegistres")]
         public List<Gpcommercialregister> GetAllCommecialregister()
         {
@@ -83,5 +107,18 @@ namespace Neqatcom.API.Controllers
         {
             adminService.ManageLenderComplaints(loaid, CID);
         }
+        [HttpGet]
+        [Route("CancleLoanAutomatically")]
+        public List<CancleLoanAuto> CancleLoanAutomatically()
+        {
+            return adminService.CancleLoanAutomatically();
+        }
+        [HttpGet]
+        [Route("CancleLoanAutoMsgForLender")]
+        public List<CancleLoanMsgforLender> CancleLoanAutoMsgForLender()
+        {
+            return adminService.CancleLoanAutoMsgForLender();
+        }
+
     }
 }

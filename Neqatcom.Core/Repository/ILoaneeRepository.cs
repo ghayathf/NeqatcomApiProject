@@ -18,6 +18,7 @@ namespace Neqatcom.Core.Repository
         void giveComplaintForLender(Gpcomplaint gpcomplaint);
         List<ConfirmLoans> GetLoansToConfirm(int loaneeidd);
         List<Gpnationalnumber> GetAllGpnationalnumber();
+        void GiveRateForLender(int IDD, int feedbak);
 
     }
 }

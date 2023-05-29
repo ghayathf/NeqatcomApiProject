@@ -19,6 +19,22 @@ namespace Neqatcom.Infra.Service
         {
             adminRepository.deleteComplaint(cid);
         }
+        public CategoriesStatistics categoriesStatistics()
+        {
+            return adminRepository.categoriesStatistics();
+        }
+        public ComplaintsStatistics complaintsStatistics()
+        {
+            return adminRepository.complaintsStatistics();
+        }
+        public AdminStatisticsLoanee AdminStatisticsLoanee()
+        {
+            return adminRepository.AdminStatisticsLoanee();
+        }
+        public LenderAdminStatistics lenderAdminStatistics()
+        {
+            return adminRepository.lenderAdminStatistics();
+        }
         public List<ActorCounterDTO> ActorCounter()
         {
             return adminRepository.ActorCounter();
@@ -47,6 +63,16 @@ namespace Neqatcom.Infra.Service
         public void ManageLenderComplaints(int loaid, int CID)
         {
             adminRepository.ManageLenderComplaints(loaid, CID);
+        }
+
+        public List<CancleLoanAuto> CancleLoanAutomatically()
+        {
+            return adminRepository.CancleLoanAutomatically();
+        }
+
+        public List<CancleLoanMsgforLender> CancleLoanAutoMsgForLender()
+        {
+            return adminRepository.CancleLoanAutoMsgForLender();
         }
     }
 }
