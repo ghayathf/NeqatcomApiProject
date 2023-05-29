@@ -38,7 +38,7 @@ namespace Neqatcom.API
         {
             services.AddCors(corsOptions =>
             {
-                corsOptions.AddPolicy("policy",
+                corsOptions.AddPolicy("CorsPolicy",
                 builder =>
                 {
                     //builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
