@@ -28,6 +28,11 @@ namespace Neqatcom.Infra.Service
             _homeRepository.CreateHomeInformation(finalHomepage);
         }
 
+        public List<bool> CreditScoreStatus(int loaneeid)
+        {
+            return _homeRepository.CreditScoreStatus(loaneeid);
+        }
+
         public void DeleteHomeInformation(int id)
         {
             _homeRepository.DeleteHomeInformation(id);
