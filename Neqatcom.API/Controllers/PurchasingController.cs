@@ -12,7 +12,6 @@ namespace Neqatcom.API.Controllers
     public class PurchasingController : ControllerBase
     {
         private readonly IPurchasingService purchasingrService;
-
         public PurchasingController(IPurchasingService purchasingrService)
         {
             this.purchasingrService = purchasingrService;
@@ -41,7 +40,6 @@ namespace Neqatcom.API.Controllers
         {
             purchasingrService.UpdatePurchasing(purchasing);
         }
-
         [HttpDelete]
         [Route("DeletePurchasing/{id}")]
         public void DeletePurchasing(int id)

@@ -10,7 +10,7 @@ namespace Neqatcom.API.Controllers
     [ApiController]
     public class OpenAIController : ControllerBase
     {
-        [HttpGet]
+        [HttpPost]
         [Route("GetData/{input}")]
         public async Task<IActionResult> GetData(string input)
         {
