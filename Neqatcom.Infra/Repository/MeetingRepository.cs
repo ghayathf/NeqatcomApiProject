@@ -26,7 +26,7 @@ namespace Neqatcom.Infra.Repository
             p.Add("feed_back", meeting.Feedbackk, DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("LoaneeIDD", meeting.Loaneeid, DbType.Int32, direction: ParameterDirection.Input);
             p.Add("LenderIDD", meeting.Lenderid, DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("Meeting_Time", meeting.Meetingtime, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("Meeting_Time", meeting.Meetingtime, DbType.String, direction: ParameterDirection.Input);
             p.Add("LoanIdd", meeting.Loanid, DbType.Int32, direction: ParameterDirection.Input);
 
             dbContext.Connection.Execute("GPMEETINGS_Package.CreateMeeting", p, commandType: CommandType.StoredProcedure);
