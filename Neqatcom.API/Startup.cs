@@ -92,6 +92,7 @@ namespace Neqatcom.API
             services.AddScoped<INotificationsRepository, NotificationsRepository>();
             services.AddHttpClient<ZoomApiController>();
             services.AddScoped<HttpClient>();
+            services.AddHttpClient<OpenAIController>();
 
         }
 
