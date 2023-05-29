@@ -41,7 +41,8 @@ namespace Neqatcom.API
                 corsOptions.AddPolicy("policy",
                 builder =>
                 {
-                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                    //builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                    builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
                 });
             });
             services.AddAuthentication(opt => {
