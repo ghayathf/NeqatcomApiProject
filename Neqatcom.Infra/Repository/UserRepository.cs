@@ -113,7 +113,7 @@ namespace Neqatcom.Infra.Repository
         public LoginClaims Auth(Gpuser login)
         {
             var p = new DynamicParameters();
-            p.Add("usernameee", login.Username, DbType.String, direction: ParameterDirection.Input);
+            p.Add("usernameee", login.Email, DbType.String, direction: ParameterDirection.Input);
             p.Add("passsword", EncryptPassword(login.Password), DbType.String, direction: ParameterDirection.Input);
             IEnumerable<LoginClaims> result = _dbContext.Connection.Query<LoginClaims>("GP_User_Package.LOGIN_CHECKING", p, commandType: System.Data.CommandType.StoredProcedure);
             return result.FirstOrDefault();
