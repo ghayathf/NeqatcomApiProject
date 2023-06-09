@@ -38,11 +38,10 @@ namespace Neqatcom.API
         {
             services.AddCors(corsOptions =>
             {
-                corsOptions.AddPolicy("CorsPolicy",
+               corsOptions.AddPolicy("policy",
                 builder =>
                 {
-                    //builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-                    builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
                 });
             });
             services.AddAuthentication(opt => {

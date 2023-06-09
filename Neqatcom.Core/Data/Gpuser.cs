@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Neqatcom.Core.Data
 {
     public partial class Gpuser
-    {
+    { 
         public Gpuser()
         {
             Gplenderstores = new HashSet<Gplenderstore>();

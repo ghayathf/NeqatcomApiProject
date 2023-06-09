@@ -12,7 +12,6 @@ namespace Neqatcom.Core.Data
             Gpmeetings = new HashSet<Gpmeeting>();
             Gppurchasings = new HashSet<Gppurchasing>();
         }
-
         public decimal Loanid { get; set; }
         public decimal? Totalmonths { get; set; }
         public decimal? Totalprice { get; set; }
