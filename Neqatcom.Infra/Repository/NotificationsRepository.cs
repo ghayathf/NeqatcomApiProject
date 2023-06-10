@@ -28,6 +28,13 @@ namespace Neqatcom.Infra.Repository
             var result = dbContext.Connection.Execute("GP_Notifications_PACKAGE.CreateNotifications", p, commandType: CommandType.StoredProcedure);
         }
 
+        public void DeleteNotificationsByUSerID(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("uid", id, DbType.Int32, direction: ParameterDirection.Input);
+            dbContext.Connection.Execute("GP_Notifications_PACKAGE.DeleteNotificationsByUserId", p, commandType: CommandType.StoredProcedure);
+        }
+       
         public List< Notification> GetNotificationById(int id)
         {
             var p = new DynamicParameters();

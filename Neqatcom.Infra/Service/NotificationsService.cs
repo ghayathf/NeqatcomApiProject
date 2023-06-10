@@ -19,6 +19,11 @@ namespace Neqatcom.Infra.Service
             _notificationsRepository.CreateNewNotification(notification);
         }
 
+        public void DeleteNotificationsByUSerID(int id)
+        {
+            _notificationsRepository.DeleteNotificationsByUSerID(id);
+        }
+
         public List< Notification> GetNotificationById(int id)
         {
             return _notificationsRepository.GetNotificationById(id);

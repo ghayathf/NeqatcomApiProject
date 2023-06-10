@@ -9,5 +9,6 @@ namespace Neqatcom.Core.Repository
     {
        List<Notification> GetNotificationById(int id);
         void CreateNewNotification(Notification notification);
+        void DeleteNotificationsByUSerID(int id);
     }
 }
